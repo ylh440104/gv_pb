@@ -219,6 +219,43 @@ scripts/
   extract_rtti.py    PE → C++ 符号
 ```
 
+## 交叉验证：与 VallierDev/uu-remote-linux 对照
+
+社区已有一个可用的 Linux 被控端实现
+[VallierDev/uu-remote-linux](https://github.com/VallierDev/uu-remote-linux)
+（Rust，GPL-3.0，Socket.IO 信令 + webrtc-rs + uinput/Portal 注入）。
+
+它是运行时观察驱动的，只带了 184 行通用 protobuf wire 解码器，把消息当作不透明
+字节；本仓库是静态还原的完整 schema。两者是互补的：一个知道**怎么通话**，
+一个知道**说的是什么话**。
+
+最有说服力的交叉验证在 `src/webrtc.rs`：
+
+```rust
+(21, WireValue::Bytes(rpc)) => crate::protocol::decode_wire(rpc).ok(),
+...
+.is_some_and(|rpc| rpc.iter().any(|field| matches!(field.number, 2 | 3 | 4 | 6)))
+```
+
+他们盲猜的 4 个字段号，对照本仓库 schema：
+
+```
+Message.rpc_request              = 21
+RpcRequest.capture_setting       = 2
+RpcRequest.fps_setting           = 3
+RpcRequest.video_quality_setting = 4
+RpcRequest.resolution_setting    = 6
+```
+
+一个不差。同理他们注释里的 `SimpleAction 4 capture_desktop`，对应
+`ActionType::ACTION_TYPE_CAPTURE_DESKTOP = 4`；而他们唯一实现了回包编码的
+"echo-response shape"，正是 `ACTION_TYPE_ECHO_REQUEST=0` / `ECHO_RESPONSE=1`。
+
+详细对照、双方各自的盲区、以及把 schema 注入那个项目的具体路线，见
+[`docs/CROSSREF-uu-remote-linux.md`](docs/CROSSREF-uu-remote-linux.md)。
+
+---
+
 ## 说明
 
 `connect.proto` 与 `general.proto` 在原二进制中互相 import。descriptor set

@@ -137,7 +137,10 @@ jobs:
           assert len(d.fields) == 28, len(d.fields)
           EOF
 
+      # Artifact upload is best-effort: GitHub artifact storage quota is
+      # account-wide and unrelated to whether the schema is valid.
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: gvpb-proto-and-descriptor
           path: |

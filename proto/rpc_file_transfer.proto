@@ -1,0 +1,190 @@
+syntax = "proto3";
+
+import "defines.proto";
+
+package gv_pb;
+
+message FileRename {
+  string path = 1;
+  string new_name = 2;
+}
+
+message FileDirCreate {
+  string path = 1;
+}
+
+message FileRemoveFile {
+  string path = 1;
+}
+
+message FileOperationResult {
+  FileTransferError file_error = 1;
+  string err_msg = 2;
+  string path = 3;
+}
+
+message FileExist {
+  string path = 1;
+  repeated string names = 2;
+}
+
+message FileExistResult {
+  string name = 1;
+  bool has_same = 2;
+  bool has_transfering = 3;
+}
+
+message FileExistResponse {
+  string path = 1;
+  repeated FileExistResult results = 2;
+}
+
+message FileEntry {
+  FileType entry_type = 1;
+  string name = 2;
+  uint64 size = 3;
+  uint64 modified_time = 4;
+  string full_path = 5;
+  string icon_type = 6;
+}
+
+message TaskId {
+  int32 task_id = 1;
+  int32 file_index = 2;
+}
+
+message ReadDir {
+  TaskId id = 1;
+  string path = 2;
+}
+
+message DirectoryData {
+  repeated FileEntry entries = 1;
+}
+
+message FileDirectory {
+  TaskId id = 1;
+  string path = 2;
+  repeated FileEntry entries = 3;
+  FileTransferError file_error = 4;
+  bytes dir_data = 5;
+}
+
+message FileRemoveDir {
+  TaskId id = 1;
+  string path = 2;
+  bool recursive = 3;
+}
+
+message FileTransferResult {
+  TaskId id = 1;
+  FileTransferError file_error = 2;
+  string err_msg = 3;
+}
+
+message FileTransferComplete {
+  TaskId id = 1;
+  FileTransferError error = 2;
+}
+
+message FileTransferAsk {
+  TaskId id = 1;
+  uint64 last_modified = 2;
+  uint64 file_size = 3;
+}
+
+message FileTransferConfirm {
+  TaskId id = 1;
+  bool skip = 2;
+  FileTransferError err = 3;
+  uint64 resume_point = 4;
+}
+
+message FileTransferBlock {
+  TaskId id = 1;
+  int32 block_id = 2;
+  bytes data = 3;
+}
+
+message FileTransferBlockConfirm {
+  TaskId id = 1;
+  int32 block_id = 2;
+  FileTransferError err = 3;
+  int32 block_len = 4;
+}
+
+message FileInfo {
+  string rel_path = 1;
+  uint64 size = 2;
+  uint64 modified_time = 3;
+}
+
+message FileList {
+  repeated FileInfo files = 1;
+}
+
+message DirectorySizeRead {
+  TaskId id = 1;
+  uint64 size = 2;
+}
+
+message FileTransferSendRequest {
+  TaskId id = 1;
+  string path = 2;
+  bytes list_data = 3;
+}
+
+message FileTransferSendResponse {
+  TaskId id = 1;
+  FileTransferError err = 2;
+  repeated FileInfo files = 3;
+  string folder_name = 4;
+  bytes list_data = 5;
+}
+
+message ClearSendTemp {
+  string task_unique_id = 1;
+}
+
+message FileTransferReceiveRequest {
+  TaskId id = 1;
+  string path = 2;
+  repeated FileInfo files = 3;
+  FileOperationStrategy file_op_strategy = 4;
+  string folder_name = 5;
+  bytes list_data = 6;
+  string task_unique_id = 7;
+}
+
+message FileTransferReceiveResponse {
+  TaskId id = 1;
+  repeated FileInfo files = 2;
+  FileTransferError err = 3;
+}
+
+message FileTransferFtpRequest {
+  FileTransferReceiveRequest receive_request = 1;
+  FileTransferSendRequest send_request = 2;
+  FileTransferAsk file_ask = 3;
+  FileTransferBlock file_block = 4;
+  FileRename rename = 5;
+  FileDirCreate dir_create = 6;
+  FileRemoveFile remove_file = 7;
+  FileRemoveDir remove_dir = 8;
+  FileTransferComplete complete = 9;
+  ReadDir read_dir = 10;
+  FileExist file_exist = 11;
+  ClearSendTemp clear_send_temp = 12;
+  DirectorySizeRead dir_size_read = 13;
+}
+
+message FileTransferFtpResponse {
+  FileTransferReceiveResponse receive_response = 1;
+  FileTransferSendResponse send_response = 2;
+  FileTransferConfirm file_confirm = 3;
+  FileTransferBlockConfirm block_confirm = 4;
+  FileOperationResult operation_result = 5;
+  FileTransferResult result = 6;
+  FileDirectory file_directory = 7;
+  FileExistResponse file_exist_response = 8;
+}

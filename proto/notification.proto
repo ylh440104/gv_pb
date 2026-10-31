@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+import "defines.proto";
+
+package gv_pb;
+
+message SecureDesktopState {
+  bool is_locked = 1;
+  bool is_sas_shown = 2;
+  int32 pos_x = 3;
+  int32 pos_y = 4;
+  bool is_support_auto_logon = 5;
+  bool is_client_ui_ready = 6;
+}
+
+message ClientUiReadyState {
+  bool is_ready = 1;
+}
+
+message CursorShape {
+  int32 pos_x = 1;
+  int32 pos_y = 2;
+  int32 width = 3;
+  int32 height = 4;
+  bytes byte_value = 5;
+  int32 cursor_type = 6;
+  double coordinate_x_scale = 7;
+  double coordinate_y_scale = 8;
+  int32 screen_id = 9;
+}
+
+message PermissionState {
+  bool assistant = 1;
+  bool video_capture_allowed = 2;
+  bool capture_content_visible = 3;
+  bool audio_capture_allowed = 4;
+  bool floating_ball = 5;
+}
+
+message RemoteAssistFileTransferState {
+  bool enabled = 1;
+}
+
+message PrivateScreenState {
+  int32 error_code = 1;
+  PrivateScreenType req_privacy_type = 2;
+  PrivateScreenType cur_privacy_type = 3;
+}
+
+message SystemStateChange {
+  SecureDesktopState sd_state = 1;
+  CursorShape cursor_shape = 2;
+  PermissionState permission_state = 3;
+  RemoteAssistFileTransferState remote_assist_file_transfer_state = 4;
+  PrivateScreenState private_screen_state = 5;
+  ClientUiReadyState client_ui_ready_state = 6;
+}
+
+message QuerySystemState {
+  enum StateId {
+    SS_ID_NONE = 0;
+    SS_ID_SECURE_DESKTOP_STATE = 1;
+  }
+  StateId id = 1;
+}

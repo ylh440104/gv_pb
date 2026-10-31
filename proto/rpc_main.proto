@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "clipboard.proto";
+import "draw.proto";
+import "rpc_file_transfer.proto";
+import "rpc_message.proto";
+
+package gv_pb;
+
+message RequestHeader {
+  int64 request_id = 1;
+}
+
+message ResponseHeader {
+  int64 request_id = 1;
+}
+
+message RpcRequest {
+  RequestHeader request_header = 1;
+  CaptureSettingRequest capture_setting = 2;
+  FpsSettingRequest fps_setting = 3;
+  VideoQualitySettingReqeust video_quality_setting = 4;
+  CursorSettingReqeust cursor_setting = 5;
+  ResolutionSettingRequest resolution_setting = 6;
+  PrivateScreenSettingRequest private_screen_setting = 7;
+  FileTransferFtpRequest file_transfer_ftp_request = 8;
+  ClipboardRequest clip_request = 9;
+  ClipboardTextChangeRequest text_change_request = 10;
+  VirtualMouseSwitchRequest mouse_switch_request = 11;
+  CreateVirtualDisplayRequest create_virtual_display_req = 12;
+  RemoveVirtualDisplayRequest remove_virtual_display_req = 13;
+  QuitSuperScreenRequest quit_super_screen = 14;
+  SendVideoTrackRequest send_video_track_req = 15;
+  QueryPluginSettingRequest query_plugin_setting_req = 16;
+  UpdatePluginSettingRequest update_plugin_setting_req = 17;
+  StartDownloadAndInstallPluginRequest start_download_and_install_plugin_req = 18;
+  PluginEnableNotificationRequest plugin_enable_notification_req = 19;
+  PluginNotificationRequest plugin_notification_req = 20;
+  VirtualAudioDriverPolicyRequest virtual_audio_driver_policy_req = 21;
+  SendFlipScreenRequest flip_screen_req = 22;
+  QuickLaunchScanRequest quick_launch_scan_req = 23;
+  QuickLaunchAppIconRequest quick_launch_app_icon_req = 24;
+  UpdateScreenSaverRequest update_screen_saver_req = 25;
+  EnterSuperScreenRequest enter_super_screen_req = 26;
+  DrawRequest draw_req = 27;
+  CheckEnvReq terminal_check_env_req = 28;
+  RenameSessionReq terminal_rename_session_req = 29;
+}
+
+message RpcResponse {
+  ResponseHeader response_header = 1;
+  CaptureSettingResponse capture_setting = 2;
+  PrivateScreenSettingResponse private_screen_setting = 3;
+  FileTransferFtpResponse file_transfer_ftp_response = 4;
+  ClipboardResponse clip_response = 5;
+  ClipboardTextChangeResponse text_change_response = 6;
+  VirtualMouseSwitchResponse mouse_switch_response = 7;
+  CreateVirtualDisplayResponse create_virtual_display_rsp = 8;
+  RemoveVirtualDisplayResponse remove_virtual_display_rsp = 9;
+  QuitSuperScreenResponse quit_super_screen = 10;
+  SendVideoTrackResponse send_video_track_rsp = 11;
+  QueryPluginSettingResponse query_plugin_setting_rsp = 12;
+  UpdatePluginSettingResponse update_plugin_setting_rsp = 13;
+  StartDownloadAndInstallPluginResponse start_download_and_install_plugin_rsp = 14;
+  PluginEnableNotificationResponse plugin_enable_notification_rsp = 15;
+  PluginNotificationResponse plugin_notification_rsp = 16;
+  VirtualAudioDriverPolicyResponse virtual_audio_driver_policy_rsp = 17;
+  SendFlipScreenResponse flip_screen_rsp = 18;
+  QuickLaunchScanResponse quick_launch_scan_rsp = 19;
+  QuickLaunchAppIconResponse quick_launch_app_icon_rsp = 20;
+  UpdateScreenSaverResponse update_screen_saver_rsp = 21;
+  EnterSuperScreenResponse enter_super_screen_rep = 22;
+  DrawResponse draw_resp = 23;
+  CheckEnvResp terminal_check_env_resp = 24;
+  RenameSessionResp terminal_rename_session_resp = 26;
+}

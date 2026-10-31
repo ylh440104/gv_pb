@@ -1,0 +1,9450 @@
+{
+ "feature_flag.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "FeatureFlag",
+    "fields": [
+     {
+      "name": "ff_capture_setting",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_simple_action",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_system_metrics",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_private_screen",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_update_acquire",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_file_transfer_ftp",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_file_transfer_ftp2",
+      "num": 7,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_clipboard",
+      "num": 8,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_qos_stat",
+      "num": 9,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_mumu_control",
+      "num": 10,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "ff_virtual_mouse_device",
+      "num": 11,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [
+   {
+    "name": "FF_CaptureSetting",
+    "values": [
+     [
+      "FF_CAPTURE_SETTING_UNKNOWN",
+      0
+     ],
+     [
+      "FF_CAPTURE_SETTING_INIT_VERION",
+      1
+     ],
+     [
+      "FF_CAPTURE_SETTING_AUTO_CREATE_VIRTUAL_DISPLAY",
+      2
+     ],
+     [
+      "FF_CAPTURE_SETTING_CHROMA_SAMPLING",
+      3
+     ],
+     [
+      "FF_CAPTURE_SETTING_CUSTOM_BITRATE",
+      4
+     ],
+     [
+      "FF_CAPTURE_SETTING_DPI_SCALE",
+      5
+     ],
+     [
+      "FF_CAPTURE_SETTING_HDR",
+      6
+     ]
+    ]
+   },
+   {
+    "name": "FF_SimpleAction",
+    "values": [
+     [
+      "FF_SIMPLE_ACTION_UNKNOWN",
+      0
+     ],
+     [
+      "FF_SIMPLE_ACTION_MUTING",
+      1
+     ],
+     [
+      "FF_SIMPLE_ACTION_AUTO_LOCK",
+      2
+     ],
+     [
+      "FF_SIMPLE_ACTION_STOP_STREAMING",
+      3
+     ]
+    ]
+   },
+   {
+    "name": "FF_SystemMetrics",
+    "values": [
+     [
+      "FF_SYSTEM_METRICS_UNKNOWN",
+      0
+     ],
+     [
+      "FF_SYSTEM_METRICS_SETTING",
+      1
+     ],
+     [
+      "FF_SYSTEM_METRICS_SETTING_AUTO_LOCK",
+      2
+     ],
+     [
+      "FF_SYSTEM_METRICS_SETTING_PRIVATE_SCREEN",
+      3
+     ]
+    ]
+   },
+   {
+    "name": "FF_PrivateScreenSetting",
+    "values": [
+     [
+      "FF_PRIVATE_SCREEN_SETTING_UNKNOWN",
+      0
+     ],
+     [
+      "FF_PRIVATE_SCREEN_SETTING_INIT_VERION",
+      1
+     ],
+     [
+      "FF_PRIVATE_SCREEN_ENHANCED_PRIVACY",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "FF_UpdateAcquire",
+    "values": [
+     [
+      "FF_UPDATE_ACQUIRE_UNKNOWN",
+      0
+     ],
+     [
+      "FF_UPDATE_ACQUIRE_INIT_VERION",
+      1
+     ]
+    ]
+   },
+   {
+    "name": "FF_FileTransfer_FTP",
+    "values": [
+     [
+      "FF_FILE_TRANSFER_FTP_UNKNOWN",
+      0
+     ],
+     [
+      "FF_FILE_TRANSFER_FTP_INIT_VERION",
+      1
+     ],
+     [
+      "FF_FILE_TRANSFER_FTP_LIST_COMPRESS",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "FF_FileTransfer_FTP2",
+    "values": [
+     [
+      "FF_FILE_TRANSFER_FTP2_UNKNOWN",
+      0
+     ],
+     [
+      "FF_FILE_TRANSFER_FTP2_RESUMABLE",
+      1
+     ],
+     [
+      "FF_FILE_TRANSFER_FTP2_SPEEDY",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "FF_Clipboard",
+    "values": [
+     [
+      "FF_CLIPBOARD_UNKNOWN",
+      0
+     ],
+     [
+      "FF_CLIPBOARD_INIT_VERION",
+      1
+     ],
+     [
+      "FF_CLIPBOARD_SUPPORT_FILE",
+      2
+     ],
+     [
+      "FF_CLIPBOARD_SUPPORT_TEXT_CHANGE",
+      3
+     ]
+    ]
+   },
+   {
+    "name": "FF_Qos_Stat",
+    "values": [
+     [
+      "FF_QOS_STAT_UNKNOWN",
+      0
+     ],
+     [
+      "FF_QOS_STAT_INIT_VERION",
+      1
+     ]
+    ]
+   },
+   {
+    "name": "MuMu_Control",
+    "values": [
+     [
+      "FF_MUMU_CONTROL_UNKNOWN",
+      0
+     ],
+     [
+      "FF_MUMU_CONTROL_INIT_VERION",
+      1
+     ]
+    ]
+   },
+   {
+    "name": "Virtual_Mouse_Device",
+    "values": [
+     [
+      "FF_VIRTUAL_MOUSE_DEVICE_UNKNOWN",
+      0
+     ],
+     [
+      "FF_VIRTUAL_MOUSE_DEVICE_INIT_VERION",
+      1
+     ]
+    ]
+   }
+  ],
+  "offset": 24587088
+ },
+ "main.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "general.proto",
+   "mumu.proto",
+   "notification.proto",
+   "connect.proto",
+   "input_event.proto",
+   "rpc_main.proto",
+   "port_mapping.proto"
+  ],
+  "messages": [
+   {
+    "name": "Message",
+    "fields": [
+     {
+      "name": "seq",
+      "num": 1,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     },
+     {
+      "name": "timestamp",
+      "num": 2,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     },
+     {
+      "name": "simple_action",
+      "num": 3,
+      "type": "gv_pb.SimpleAction",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "launch_app",
+      "num": 4,
+      "type": "gv_pb.LaunchApp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "show_app",
+      "num": 5,
+      "type": "gv_pb.ShowApp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "mumu_operate",
+      "num": 6,
+      "type": "gv_pb.MumuOperate",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "screens",
+      "num": 7,
+      "type": "gv_pb.ScreenSources",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_change",
+      "num": 8,
+      "type": "gv_pb.CaptureChange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_config",
+      "num": 9,
+      "type": "gv_pb.CaptureConfig",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "rom_message",
+      "num": 10,
+      "type": "gv_pb.RomMessage",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "send_to_rom",
+      "num": 11,
+      "type": "gv_pb.SendToRom",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "report_error",
+      "num": 12,
+      "type": "gv_pb.ReportError",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "system_metrics",
+      "num": 13,
+      "type": "gv_pb.SystemMetrics",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "report_qos_stats",
+      "num": 14,
+      "type": "gv_pb.ReportQosStats",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "system_state_change",
+      "num": 15,
+      "type": "gv_pb.SystemStateChange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "query_system_state",
+      "num": 16,
+      "type": "gv_pb.QuerySystemState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clipboard_change",
+      "num": 17,
+      "type": "gv_pb.ClipboardChange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "codec_negotiation",
+      "num": 18,
+      "type": "gv_pb.CodecNegotiation",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_config_response",
+      "num": 19,
+      "type": "gv_pb.CaptureConfigResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "input_event",
+      "num": 20,
+      "type": "gv_pb.InputEvent",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "rpc_request",
+      "num": 21,
+      "type": "gv_pb.RpcRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "rpc_response",
+      "num": 22,
+      "type": "gv_pb.RpcResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "active_window_change",
+      "num": 23,
+      "type": "gv_pb.ActiveWindowChange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "launch_cloud_pc_app",
+      "num": 24,
+      "type": "gv_pb.LaunchCloudPcApp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_setting_sync",
+      "num": 25,
+      "type": "gv_pb.CaptureSettingSync",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remote_download_path",
+      "num": 26,
+      "type": "gv_pb.RemoteDownloadPath",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "port_mapping_frame",
+      "num": 27,
+      "type": "gv_pb.PortMappingFrame",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "terminal_session_changed",
+      "num": 28,
+      "type": "gv_pb.TerminalSessionChanged",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24589904
+ },
+ "rpc_main.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "rpc_message.proto",
+   "rpc_file_transfer.proto",
+   "clipboard.proto",
+   "draw.proto"
+  ],
+  "messages": [
+   {
+    "name": "RequestHeader",
+    "fields": [
+     {
+      "name": "request_id",
+      "num": 1,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ResponseHeader",
+    "fields": [
+     {
+      "name": "request_id",
+      "num": 1,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RpcRequest",
+    "fields": [
+     {
+      "name": "request_header",
+      "num": 1,
+      "type": "gv_pb.RequestHeader",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_setting",
+      "num": 2,
+      "type": "gv_pb.CaptureSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "fps_setting",
+      "num": 3,
+      "type": "gv_pb.FpsSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "video_quality_setting",
+      "num": 4,
+      "type": "gv_pb.VideoQualitySettingReqeust",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "cursor_setting",
+      "num": 5,
+      "type": "gv_pb.CursorSettingReqeust",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "resolution_setting",
+      "num": 6,
+      "type": "gv_pb.ResolutionSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "private_screen_setting",
+      "num": 7,
+      "type": "gv_pb.PrivateScreenSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_transfer_ftp_request",
+      "num": 8,
+      "type": "gv_pb.FileTransferFtpRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clip_request",
+      "num": 9,
+      "type": "gv_pb.ClipboardRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "text_change_request",
+      "num": 10,
+      "type": "gv_pb.ClipboardTextChangeRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "mouse_switch_request",
+      "num": 11,
+      "type": "gv_pb.VirtualMouseSwitchRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "create_virtual_display_req",
+      "num": 12,
+      "type": "gv_pb.CreateVirtualDisplayRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remove_virtual_display_req",
+      "num": 13,
+      "type": "gv_pb.RemoveVirtualDisplayRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quit_super_screen",
+      "num": 14,
+      "type": "gv_pb.QuitSuperScreenRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "send_video_track_req",
+      "num": 15,
+      "type": "gv_pb.SendVideoTrackRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "query_plugin_setting_req",
+      "num": 16,
+      "type": "gv_pb.QueryPluginSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "update_plugin_setting_req",
+      "num": 17,
+      "type": "gv_pb.UpdatePluginSettingRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "start_download_and_install_plugin_req",
+      "num": 18,
+      "type": "gv_pb.StartDownloadAndInstallPluginRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "plugin_enable_notification_req",
+      "num": 19,
+      "type": "gv_pb.PluginEnableNotificationRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "plugin_notification_req",
+      "num": 20,
+      "type": "gv_pb.PluginNotificationRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "virtual_audio_driver_policy_req",
+      "num": 21,
+      "type": "gv_pb.VirtualAudioDriverPolicyRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "flip_screen_req",
+      "num": 22,
+      "type": "gv_pb.SendFlipScreenRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quick_launch_scan_req",
+      "num": 23,
+      "type": "gv_pb.QuickLaunchScanRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quick_launch_app_icon_req",
+      "num": 24,
+      "type": "gv_pb.QuickLaunchAppIconRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "update_screen_saver_req",
+      "num": 25,
+      "type": "gv_pb.UpdateScreenSaverRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "enter_super_screen_req",
+      "num": 26,
+      "type": "gv_pb.EnterSuperScreenRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "draw_req",
+      "num": 27,
+      "type": "gv_pb.DrawRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "terminal_check_env_req",
+      "num": 28,
+      "type": "gv_pb.CheckEnvReq",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "terminal_rename_session_req",
+      "num": 29,
+      "type": "gv_pb.RenameSessionReq",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   },
+   {
+    "name": "RpcResponse",
+    "fields": [
+     {
+      "name": "response_header",
+      "num": 1,
+      "type": "gv_pb.ResponseHeader",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "capture_setting",
+      "num": 2,
+      "type": "gv_pb.CaptureSettingResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "private_screen_setting",
+      "num": 3,
+      "type": "gv_pb.PrivateScreenSettingResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_transfer_ftp_response",
+      "num": 4,
+      "type": "gv_pb.FileTransferFtpResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clip_response",
+      "num": 5,
+      "type": "gv_pb.ClipboardResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "text_change_response",
+      "num": 6,
+      "type": "gv_pb.ClipboardTextChangeResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "mouse_switch_response",
+      "num": 7,
+      "type": "gv_pb.VirtualMouseSwitchResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "create_virtual_display_rsp",
+      "num": 8,
+      "type": "gv_pb.CreateVirtualDisplayResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remove_virtual_display_rsp",
+      "num": 9,
+      "type": "gv_pb.RemoveVirtualDisplayResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quit_super_screen",
+      "num": 10,
+      "type": "gv_pb.QuitSuperScreenResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "send_video_track_rsp",
+      "num": 11,
+      "type": "gv_pb.SendVideoTrackResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "query_plugin_setting_rsp",
+      "num": 12,
+      "type": "gv_pb.QueryPluginSettingResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "update_plugin_setting_rsp",
+      "num": 13,
+      "type": "gv_pb.UpdatePluginSettingResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "start_download_and_install_plugin_rsp",
+      "num": 14,
+      "type": "gv_pb.StartDownloadAndInstallPluginResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "plugin_enable_notification_rsp",
+      "num": 15,
+      "type": "gv_pb.PluginEnableNotificationResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "plugin_notification_rsp",
+      "num": 16,
+      "type": "gv_pb.PluginNotificationResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "virtual_audio_driver_policy_rsp",
+      "num": 17,
+      "type": "gv_pb.VirtualAudioDriverPolicyResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "flip_screen_rsp",
+      "num": 18,
+      "type": "gv_pb.SendFlipScreenResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quick_launch_scan_rsp",
+      "num": 19,
+      "type": "gv_pb.QuickLaunchScanResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "quick_launch_app_icon_rsp",
+      "num": 20,
+      "type": "gv_pb.QuickLaunchAppIconResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "update_screen_saver_rsp",
+      "num": 21,
+      "type": "gv_pb.UpdateScreenSaverResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "enter_super_screen_rep",
+      "num": 22,
+      "type": "gv_pb.EnterSuperScreenResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "draw_resp",
+      "num": 23,
+      "type": "gv_pb.DrawResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "terminal_check_env_resp",
+      "num": 24,
+      "type": "gv_pb.CheckEnvResp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "terminal_rename_session_resp",
+      "num": 26,
+      "type": "gv_pb.RenameSessionResp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24592496
+ },
+ "general.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto",
+   "feature_flag.proto"
+  ],
+  "messages": [
+   {
+    "name": "ActionKeyToggle",
+    "fields": [
+     {
+      "name": "key_type",
+      "num": 1,
+      "type": "gv_pb.ActionKeyToggle.KeyType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "toggle",
+      "num": 2,
+      "type": "gv_pb.ActionKeyToggle.Toggle",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "KeyType",
+      "values": [
+       [
+        "UNKNOWN",
+        0
+       ],
+       [
+        "CAPS_LOCK",
+        1
+       ],
+       [
+        "NUM_LOCK",
+        2
+       ],
+       [
+        "SCROLL_LOCK",
+        3
+       ]
+      ]
+     },
+     {
+      "name": "Toggle",
+      "values": [
+       [
+        "TOGGLE",
+        0
+       ],
+       [
+        "OFF",
+        1
+       ],
+       [
+        "ON",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "SimpleAction",
+    "fields": [
+     {
+      "name": "action",
+      "num": 1,
+      "type": "gv_pb.SimpleAction.ActionType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "args",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_toggle",
+      "num": 3,
+      "type": "gv_pb.ActionKeyToggle",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "feature_flag",
+      "num": 4,
+      "type": "gv_pb.FeatureFlag",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "value",
+      "num": 5,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "ActionType",
+      "values": [
+       [
+        "ACTION_TYPE_ECHO_REQUEST",
+        0
+       ],
+       [
+        "ACTION_TYPE_ECHO_RESPONSE",
+        1
+       ],
+       [
+        "ACTION_TYPE_SHOW_DESKTOP",
+        2
+       ],
+       [
+        "ACTION_TYPE_SHOW_WINDOWS",
+        3
+       ],
+       [
+        "ACTION_TYPE_CAPTURE_DESKTOP",
+        4
+       ],
+       [
+        "ACTION_TYPE_CAPTURE_WINDOW",
+        5
+       ],
+       [
+        "ACTION_TYPE_CAPTURE_MUMU",
+        6
+       ],
+       [
+        "ACTION_TYPE_STOP_CAPTURE",
+        7
+       ],
+       [
+        "ACTION_TYPE_RESTART_CAPTURE",
+        8
+       ],
+       [
+        "ACTION_TYPE_REBOOT_SYSTEM",
+        9
+       ],
+       [
+        "ACTION_TYPE_LOCK_SYSTEM",
+        10
+       ],
+       [
+        "ACTION_TYPE_KEY_TOGGLE",
+        11
+       ],
+       [
+        "ACTION_TYPE_SHUTDOWN_SYSTEM",
+        12
+       ],
+       [
+        "ACTION_TYPE_SHOW_TASKMGR",
+        13
+       ],
+       [
+        "ACTION_TYPE_MUTE_SYSTEM",
+        14
+       ],
+       [
+        "ACTION_TYPE_AUTO_UNLOCK_SYSTEM",
+        15
+       ],
+       [
+        "ACTION_TYPE_MUTE_RESTORE",
+        16
+       ],
+       [
+        "ACTION_TYPE_MUTE_PERMANENT",
+        17
+       ],
+       [
+        "ACTION_TYPE_MUTE_TEMPORARY",
+        18
+       ],
+       [
+        "ACTION_TYPE_SET_AUTO_LOCK",
+        19
+       ],
+       [
+        "ACTION_TYPE_STOP_ACQUIRE_UPDATE",
+        20
+       ],
+       [
+        "ACTION_TYPE_QUIT_CAPTURE",
+        21
+       ],
+       [
+        "ACTION_TYPE_ACQUIRE_SYSTEM_INFO",
+        22
+       ],
+       [
+        "ACTION_TYPE_MICROPHONE_OPENED",
+        23
+       ],
+       [
+        "ACTION_TYPE_MICROPHONE_CLOSED",
+        24
+       ],
+       [
+        "ACTION_TYPE_SPEAKER_OPENED",
+        25
+       ],
+       [
+        "ACTION_TYPE_SPEAKER_CLOSED",
+        26
+       ],
+       [
+        "ACTION_TYPE_NEED_RESTART_USERAPP",
+        27
+       ]
+      ]
+     }
+    ],
+    "oneofs": [
+     "params"
+    ]
+   },
+   {
+    "name": "LaunchApp",
+    "fields": [
+     {
+      "name": "dapp_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "target_path",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "args",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "app_key",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ShowApp",
+    "fields": [
+     {
+      "name": "dapp_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "target_path",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "args",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "WinRect",
+    "fields": [
+     {
+      "name": "left",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "top",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "width",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "pixel_width",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "pixel_height",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DpiScale",
+    "fields": [
+     {
+      "name": "current_dpi",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "recommended_dpi",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "dpis",
+      "num": 3,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "Screen",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "fps",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolutions",
+      "num": 3,
+      "type": "gv_pb.WinRect",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "current_resolution",
+      "num": 4,
+      "type": "gv_pb.WinRect",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "screen_type",
+      "num": 5,
+      "type": "gv_pb.ScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "init_resolution",
+      "num": 6,
+      "type": "gv_pb.WinRect",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "is_primary_screen",
+      "num": 7,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "dpr",
+      "num": 8,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "dpi_scale",
+      "num": 9,
+      "type": "gv_pb.DpiScale",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "display_name",
+      "num": 10,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "resolution_type",
+      "num": 11,
+      "type": "gv_pb.ChooseResolutionType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "video_track_index",
+      "num": 12,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "builtin_screen_type",
+      "num": 13,
+      "type": "gv_pb.BuiltinScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ScreenSources",
+    "fields": [
+     {
+      "name": "screens",
+      "num": 1,
+      "type": "gv_pb.Screen",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "current_screen_id",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CaptureChange",
+    "fields": [
+     {
+      "name": "capture_type",
+      "num": 1,
+      "type": "gv_pb.CaptureChange.Type",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "type_value",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "desc",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Type",
+      "values": [
+       [
+        "CT_DESKTOP",
+        0
+       ],
+       [
+        "CT_WINDOW",
+        1
+       ],
+       [
+        "CT_MUMU",
+        2
+       ],
+       [
+        "CT_HOOK",
+        3
+       ],
+       [
+        "CT_NONE",
+        99
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "ReportError",
+    "fields": [
+     {
+      "name": "action",
+      "num": 1,
+      "type": "gv_pb.ReportError.Action",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "error_code",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "error_msg",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "type_value",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Action",
+      "values": [
+       [
+        "RE_ACTION_CAPTURE_DESKTOP",
+        0
+       ],
+       [
+        "RE_ACTION_CAPTURE_WINDOW",
+        1
+       ],
+       [
+        "RE_ACTION_CAPTURE_MUMU",
+        2
+       ],
+       [
+        "RE_ACTION_CAPTURE_HOOK",
+        3
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "ReportQosStats",
+    "fields": [
+     {
+      "name": "encoder_type",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "capture_type",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "probe_bps",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "video_quality",
+      "num": 4,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "fast_bitrate",
+      "num": 5,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "general_bitrate",
+      "num": 6,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "hd_bitrate",
+      "num": 7,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "bluray_bitrate",
+      "num": 8,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardChange",
+    "fields": [
+     {
+      "name": "content_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "content",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "to_be_continued",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Type",
+      "values": [
+       [
+        "UNKNOWN",
+        0
+       ],
+       [
+        "TEXT",
+        1
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "ActiveWindowChange",
+    "fields": [
+     {
+      "name": "win_info",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CaptureConfig",
+    "fields": [
+     {
+      "name": "client",
+      "num": 1,
+      "type": "gv_pb.CaptureConfig.ClientType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "fps",
+      "num": 2,
+      "type": "gv_pb.CaptureConfig.FPSValue",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "frame_quality",
+      "num": 3,
+      "type": "gv_pb.CaptureConfig.FrameQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "cursor_capture",
+      "num": 4,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "screen_id",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_width",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 7,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "config_flag",
+      "num": 8,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "FPSValue",
+      "values": [
+       [
+        "FPS_30",
+        0
+       ],
+       [
+        "FPS_60",
+        1
+       ],
+       [
+        "FPS_90",
+        2
+       ],
+       [
+        "FPS_144",
+        3
+       ]
+      ]
+     },
+     {
+      "name": "FrameQuality",
+      "values": [
+       [
+        "QUALITY_Unknown",
+        0
+       ],
+       [
+        "QUALITY_Fast",
+        1
+       ],
+       [
+        "QUALITY_General",
+        2
+       ],
+       [
+        "QUALITY_HD",
+        3
+       ],
+       [
+        "QUALITY_Bluray",
+        4
+       ],
+       [
+        "QUALITY_Auto",
+        5
+       ]
+      ]
+     },
+     {
+      "name": "ClientType",
+      "values": [
+       [
+        "Client_IOS",
+        0
+       ],
+       [
+        "Client_MAC",
+        1
+       ],
+       [
+        "Client_ANDROID",
+        2
+       ],
+       [
+        "Client_WINDOWS",
+        3
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "CaptureConfigResponse",
+    "fields": [
+     {
+      "name": "request_seq",
+      "num": 1,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     },
+     {
+      "name": "config_flag",
+      "num": 2,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     },
+     {
+      "name": "err_code",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "error_message",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RomMessage",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "value",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "index",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "byte_value",
+      "num": 4,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SendToRom",
+    "fields": [
+     {
+      "name": "input_type",
+      "num": 1,
+      "type": "gv_pb.SendToRom.MessageType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "input_msg",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "index",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "MessageType",
+      "values": [
+       [
+        "RomMsg_VINPUT",
+        0
+       ],
+       [
+        "RomMsg_Text",
+        1
+       ],
+       [
+        "RomMsg_Snapshot",
+        2
+       ],
+       [
+        "RomMsg_TabManage",
+        3
+       ],
+       [
+        "RomMsg_Rotation",
+        4
+       ],
+       [
+        "RomMsg_Volume",
+        5
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "GeneralMetric",
+    "fields": [
+     {
+      "name": "support_touch",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "system_sound_support",
+      "num": 2,
+      "type": "gv_pb.SystemSoundSupport",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "win_os_ver",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SettingMetric",
+    "fields": [
+     {
+      "name": "keep_mute",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "mute_permanent",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "auto_lock",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "private_screen",
+      "num": 4,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "file_transfer_save_location",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "virtual_mouse_switch",
+      "num": 6,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "private_screen_type",
+      "num": 7,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "capture_permission_state",
+      "num": 8,
+      "type": "gv_pb.PermissionAuthState",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "operation_permission_state",
+      "num": 9,
+      "type": "gv_pb.PermissionAuthState",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "control_allowed_state",
+      "num": 10,
+      "type": "gv_pb.PermissionAuthState",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SystemMetrics",
+    "fields": [
+     {
+      "name": "metrics",
+      "num": 1,
+      "type": "gv_pb.SystemMetrics.Metric",
+      "label": 3,
+      "raw_type": 14,
+      "repeated": true
+     },
+     {
+      "name": "response",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "general",
+      "num": 3,
+      "type": "gv_pb.GeneralMetric",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "setting",
+      "num": 4,
+      "type": "gv_pb.SettingMetric",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Metric",
+      "values": [
+       [
+        "METRIC_MUMU",
+        0
+       ],
+       [
+        "METRIC_GENERAL",
+        1
+       ],
+       [
+        "METRIC_SETTING",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "LaunchCloudPcApp",
+    "fields": [
+     {
+      "name": "dapp_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "cpc_app_id",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "target_path",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "args",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RemoteDownloadPath",
+    "fields": [
+     {
+      "name": "download_path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CaptureSettingSync",
+    "fields": [
+     {
+      "name": "fps",
+      "num": 1,
+      "type": "gv_pb.FPS",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "frame_quality",
+      "num": 2,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "chroma_format",
+      "num": 3,
+      "type": "gv_pb.ChromaFormat",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "max_custom_bitrate",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_width",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_type",
+      "num": 7,
+      "type": "gv_pb.ChooseResolutionType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "dpi_scale",
+      "num": 8,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_pixel_width",
+      "num": 9,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_pixel_height",
+      "num": 10,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "screen_orientation",
+      "num": 11,
+      "type": "gv_pb.ScreenOrientation",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "TerminalSessionChanged",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 24599888
+ },
+ "rpc_message.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto"
+  ],
+  "messages": [
+   {
+    "name": "CaptureSettingRequest",
+    "fields": [
+     {
+      "name": "fps",
+      "num": 1,
+      "type": "gv_pb.FPS",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "frame_quality",
+      "num": 2,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "cursor_capture",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "screen_id",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_width",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "chorma_format",
+      "num": 7,
+      "type": "gv_pb.ChromaFormat",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "max_custom_bitrate",
+      "num": 8,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "dpi_scale",
+      "num": 9,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_type",
+      "num": 10,
+      "type": "gv_pb.ChooseResolutionType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "enable_hdr",
+      "num": 11,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "auto_frame_quality",
+      "num": 12,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "codec_type",
+      "num": 13,
+      "type": "gv_pb.CodecType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "max_scale_width",
+      "num": 14,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "max_scale_height",
+      "num": 15,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_pixel_width",
+      "num": 16,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_pixel_height",
+      "num": 17,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "fpsCount",
+      "num": 18,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FpsSettingRequest",
+    "fields": [
+     {
+      "name": "fps",
+      "num": 1,
+      "type": "gv_pb.FPS",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VideoQualitySettingReqeust",
+    "fields": [
+     {
+      "name": "frame_quality",
+      "num": 1,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CursorSettingReqeust",
+    "fields": [
+     {
+      "name": "cursor_capture",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ResolutionSettingRequest",
+    "fields": [
+     {
+      "name": "resolution_width",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "Error",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "error_message",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "error_detail",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CaptureSettingResponse",
+    "fields": [
+     {
+      "name": "errors",
+      "num": 1,
+      "type": "gv_pb.Error",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PrivateScreenSettingRequest",
+    "fields": [
+     {
+      "name": "enable",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "privacy_type",
+      "num": 2,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "setting_source",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PrivateScreenSettingResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "req_privacy_type",
+      "num": 2,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "cur_privacy_type",
+      "num": 3,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualMouseSwitchRequest",
+    "fields": [
+     {
+      "name": "enable",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualMouseSwitchResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CreateVirtualDisplayRequest",
+    "fields": [
+     {
+      "name": "local_resolution",
+      "num": 1,
+      "type": "gv_pb.ScreenResolution",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "virtual_display_count",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CreateVirtualDisplayResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RemoveVirtualDisplayRequest",
+    "fields": [
+     {
+      "name": "screen_id",
+      "num": 1,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RemoveVirtualDisplayResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuitSuperScreenRequest",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuitSuperScreenResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SendVideoTrackRequest",
+    "fields": [
+     {
+      "name": "video_track_index",
+      "num": 1,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SendVideoTrackResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QueryPluginSettingRequest",
+    "fields": [
+     {
+      "name": "plugin_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QueryPluginSettingResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "enable",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "plugin_id",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "UpdatePluginSettingRequest",
+    "fields": [
+     {
+      "name": "plugin_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "enable",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "UpdatePluginSettingResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "plugin_package_size",
+      "num": 2,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "plugin_id",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "enable",
+      "num": 4,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "StartDownloadAndInstallPluginRequest",
+    "fields": [
+     {
+      "name": "plugin_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "StartDownloadAndInstallPluginResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "plugin_id",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PluginEnableNotificationRequest",
+    "fields": [
+     {
+      "name": "plugin_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PluginEnableNotificationResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "plugin_id",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PluginNotificationRequest",
+    "fields": [
+     {
+      "name": "plugin_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "notification_type",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PluginNotificationResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "plugin_id",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualAudioDriverPolicyRequest",
+    "fields": [
+     {
+      "name": "policy",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualAudioDriverPolicyResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SendFlipScreenRequest",
+    "fields": [
+     {
+      "name": "screen_orientation",
+      "num": 1,
+      "type": "gv_pb.ScreenOrientation",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SendFlipScreenResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuickLaunchScanRequest",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuickLaunchAppItem",
+    "fields": [
+     {
+      "name": "app_key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "icon_url",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "target_path",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "app_id",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuickLaunchScanResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "error_message",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "apps",
+      "num": 3,
+      "type": "gv_pb.QuickLaunchAppItem",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuickLaunchAppIconRequest",
+    "fields": [
+     {
+      "name": "app_key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "QuickLaunchAppIconResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "error_message",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "app_key",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "byte_value",
+      "num": 4,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "UpdateScreenSaverRequest",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "UpdateScreenSaverResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnterSuperScreenFpsNotSupport",
+    "fields": [
+     {
+      "name": "fps_count",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnterSuperScreenRequest",
+    "fields": [
+     {
+      "name": "reason",
+      "num": 1,
+      "type": "gv_pb.EnterSuperScreenRequest.EnterReason",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "resolution",
+      "num": 2,
+      "type": "gv_pb.ScreenResolution",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "dpi_scale",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "enter_fps",
+      "num": 4,
+      "type": "gv_pb.EnterSuperScreenFpsNotSupport",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "EnterReason",
+      "values": [
+       [
+        "REASON_UNKNOWN",
+        0
+       ],
+       [
+        "REASON_MANUAL",
+        1
+       ],
+       [
+        "REASON_FPS_NOT_SUPPORT",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": [
+     "params"
+    ]
+   },
+   {
+    "name": "EnterSuperScreenResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CheckEnvReq",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CheckEnvResp",
+    "fields": [
+     {
+      "name": "code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "message",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RenameSessionReq",
+    "fields": [
+     {
+      "name": "session_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RenameSessionResp",
+    "fields": [
+     {
+      "name": "session_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "code",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "message",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 24613776
+ },
+ "clipboard.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto"
+  ],
+  "messages": [
+   {
+    "name": "ClipboardFormat",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DragDropAutoSave",
+    "fields": [
+     {
+      "name": "dest_path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DragDropAutoSaveComplete",
+    "fields": [
+     {
+      "name": "total_count",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "success_count",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "first_file_name",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DragDropAutoSaveCompleteResponse",
+    "fields": [
+     {
+      "name": "err",
+      "num": 1,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DragDropOleDrop",
+    "fields": [
+     {
+      "name": "target_x",
+      "num": 1,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "target_y",
+      "num": 2,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "screen_id",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFormatListRequest",
+    "fields": [
+     {
+      "name": "formats",
+      "num": 1,
+      "type": "gv_pb.ClipboardFormat",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "has_action",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "auto_save",
+      "num": 3,
+      "type": "gv_pb.DragDropAutoSave",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "ole_drop",
+      "num": 4,
+      "type": "gv_pb.DragDropOleDrop",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "drag_drop_action"
+    ]
+   },
+   {
+    "name": "ClipboardFormatListResponse",
+    "fields": [],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFormatDataAsk",
+    "fields": [
+     {
+      "name": "format_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "block_key",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "format_name",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFormatDataConfirm",
+    "fields": [
+     {
+      "name": "err",
+      "num": 1,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "block_key",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "block_count",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardDataBlock",
+    "fields": [
+     {
+      "name": "block_key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "block_id",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "data",
+      "num": 3,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardDataBlockConfirm",
+    "fields": [
+     {
+      "name": "block_key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "block_id",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileDescriptor",
+    "fields": [
+     {
+      "name": "file_name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "file_attributes",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "last_write_time",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "file_size",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileDescriptorListRequest",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileDescriptorListResponse",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "segment_count",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileDescriptorSegment",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "segment_id",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "file_descs",
+      "num": 3,
+      "type": "gv_pb.ClipboardFileDescriptor",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileDescriptorSegmentConfirm",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "segment_id",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileContentsRequest",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "list_index",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "flags",
+      "num": 3,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "pos_offset",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "requested_len",
+      "num": 5,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileContentsResponse",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "data",
+      "num": 2,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "pos_offset",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "list_index",
+      "num": 5,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileCancelRequest",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardFileCancelResponse",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 2,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardTextChangeRequest",
+    "fields": [
+     {
+      "name": "format_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "data",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardTextChangeResponse",
+    "fields": [
+     {
+      "name": "err",
+      "num": 1,
+      "type": "gv_pb.ClipboardError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClipboardRequest",
+    "fields": [
+     {
+      "name": "format_list",
+      "num": 1,
+      "type": "gv_pb.ClipboardFormatListRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "format_data_ask",
+      "num": 2,
+      "type": "gv_pb.ClipboardFormatDataAsk",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "data_block",
+      "num": 3,
+      "type": "gv_pb.ClipboardDataBlock",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_desc_list_request",
+      "num": 4,
+      "type": "gv_pb.ClipboardFileDescriptorListRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_contents_request",
+      "num": 5,
+      "type": "gv_pb.ClipboardFileContentsRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "cancel_request",
+      "num": 6,
+      "type": "gv_pb.ClipboardFileCancelRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "desc_segment",
+      "num": 7,
+      "type": "gv_pb.ClipboardFileDescriptorSegment",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "auto_save_complete",
+      "num": 8,
+      "type": "gv_pb.DragDropAutoSaveComplete",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   },
+   {
+    "name": "ClipboardResponse",
+    "fields": [
+     {
+      "name": "format_list_response",
+      "num": 1,
+      "type": "gv_pb.ClipboardFormatListResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "format_data_confirm",
+      "num": 2,
+      "type": "gv_pb.ClipboardFormatDataConfirm",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "data_block_confirm",
+      "num": 3,
+      "type": "gv_pb.ClipboardDataBlockConfirm",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_desc_list_response",
+      "num": 4,
+      "type": "gv_pb.ClipboardFileDescriptorListResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_contents_response",
+      "num": 5,
+      "type": "gv_pb.ClipboardFileContentsResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "cancel_response",
+      "num": 6,
+      "type": "gv_pb.ClipboardFileCancelResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "desc_segment_confirm",
+      "num": 7,
+      "type": "gv_pb.ClipboardFileDescriptorSegmentConfirm",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "auto_save_complete_response",
+      "num": 8,
+      "type": "gv_pb.DragDropAutoSaveCompleteResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24632128
+ },
+ "notification.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto"
+  ],
+  "messages": [
+   {
+    "name": "SecureDesktopState",
+    "fields": [
+     {
+      "name": "is_locked",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "is_sas_shown",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "pos_x",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "pos_y",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "is_support_auto_logon",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "is_client_ui_ready",
+      "num": 6,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "_is_client_ui_ready"
+    ]
+   },
+   {
+    "name": "ClientUiReadyState",
+    "fields": [
+     {
+      "name": "is_ready",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CursorShape",
+    "fields": [
+     {
+      "name": "pos_x",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "pos_y",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "width",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "byte_value",
+      "num": 5,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     },
+     {
+      "name": "cursor_type",
+      "num": 6,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "coordinate_x_scale",
+      "num": 7,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "coordinate_y_scale",
+      "num": 8,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "screen_id",
+      "num": 9,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PermissionState",
+    "fields": [
+     {
+      "name": "assistant",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "video_capture_allowed",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "capture_content_visible",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "audio_capture_allowed",
+      "num": 4,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "floating_ball",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "RemoteAssistFileTransferState",
+    "fields": [
+     {
+      "name": "enabled",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "PrivateScreenState",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "req_privacy_type",
+      "num": 2,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "cur_privacy_type",
+      "num": 3,
+      "type": "gv_pb.PrivateScreenType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SystemStateChange",
+    "fields": [
+     {
+      "name": "sd_state",
+      "num": 1,
+      "type": "gv_pb.SecureDesktopState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "cursor_shape",
+      "num": 2,
+      "type": "gv_pb.CursorShape",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "permission_state",
+      "num": 3,
+      "type": "gv_pb.PermissionState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remote_assist_file_transfer_state",
+      "num": 4,
+      "type": "gv_pb.RemoteAssistFileTransferState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "private_screen_state",
+      "num": 5,
+      "type": "gv_pb.PrivateScreenState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "client_ui_ready_state",
+      "num": 6,
+      "type": "gv_pb.ClientUiReadyState",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   },
+   {
+    "name": "QuerySystemState",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.QuerySystemState.StateId",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "StateId",
+      "values": [
+       [
+        "SS_ID_NONE",
+        0
+       ],
+       [
+        "SS_ID_SECURE_DESKTOP_STATE",
+        1
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 24642000
+ },
+ "connect.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto",
+   "feature_flag.proto"
+  ],
+  "messages": [
+   {
+    "name": "CaptureParams",
+    "fields": [
+     {
+      "name": "fps",
+      "num": 1,
+      "type": "gv_pb.FPS",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "video_quality",
+      "num": 2,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "cursor_capture",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "choose_resolution_type",
+      "num": 4,
+      "type": "gv_pb.ChooseResolutionType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "local_resolution",
+      "num": 5,
+      "type": "gv_pb.ScreenResolution",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "choose_resolution",
+      "num": 6,
+      "type": "gv_pb.ScreenResolution",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "chroma_format",
+      "num": 7,
+      "type": "gv_pb.ChromaFormat",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "max_custom_bitrate",
+      "num": 8,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "enable_hdr",
+      "num": 9,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "auto_frame_quality",
+      "num": 10,
+      "type": "gv_pb.VideoQuality",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "fpsCount",
+      "num": 11,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DecoderCap",
+    "fields": [
+     {
+      "name": "fps",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "codec_type",
+      "num": 2,
+      "type": "gv_pb.CodecType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "resolution_width",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "chroma_format",
+      "num": 5,
+      "type": "gv_pb.ChromaFormat",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualDisplayMode",
+    "fields": [
+     {
+      "name": "width",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "VSync",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "VirtualDisplayInitResolution",
+    "fields": [
+     {
+      "name": "width",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ConnectOptions",
+    "fields": [
+     {
+      "name": "capture_type",
+      "num": 1,
+      "type": "gv_pb.ConnectOptions.Type",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "type_value",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "capture_params",
+      "num": 3,
+      "type": "gv_pb.CaptureParams",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "decoder_cap_list",
+      "num": 4,
+      "type": "gv_pb.DecoderCap",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "force_virtual_display",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "virtual_display_modes",
+      "num": 6,
+      "type": "gv_pb.VirtualDisplayMode",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "virtual_display_init_resolution",
+      "num": 7,
+      "type": "gv_pb.VirtualDisplayInitResolution",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "client_type",
+      "num": 8,
+      "type": "gv_pb.ClientType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "device_id",
+      "num": 9,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "control_connect_type",
+      "num": 10,
+      "type": "gv_pb.ControlConnectType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "feature_flag",
+      "num": 11,
+      "type": "gv_pb.FeatureFlag",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "client_version",
+      "num": 12,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Type",
+      "values": [
+       [
+        "CT_UNKNOWN",
+        0
+       ],
+       [
+        "CT_DESKTOP",
+        1
+       ],
+       [
+        "CT_WINDOW",
+        2
+       ],
+       [
+        "CT_MUMU",
+        3
+       ],
+       [
+        "CT_HOOK",
+        4
+       ],
+       [
+        "CT_FILETRANSFER",
+        5
+       ],
+       [
+        "CT_SECOND_SCREEN",
+        6
+       ],
+       [
+        "CT_QUICKLAUNCH",
+        7
+       ],
+       [
+        "CT_TERMINAL",
+        8
+       ],
+       [
+        "CT_PORTMAPPING",
+        9
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "EncoderCap",
+    "fields": [
+     {
+      "name": "capture_mode",
+      "num": 1,
+      "type": "gv_pb.CaptureMode",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "fps",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "corec_type",
+      "num": 3,
+      "type": "gv_pb.CodecType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "resolution_width",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "resolution_height",
+      "num": 5,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "CodecNegotiation",
+    "fields": [
+     {
+      "name": "encoder_cap_list",
+      "num": 1,
+      "type": "gv_pb.EncoderCap",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 24645344
+ },
+ "defines.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "ScreenResolution",
+    "fields": [
+     {
+      "name": "width",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [
+   {
+    "name": "FPS",
+    "values": [
+     [
+      "FPS_UNKNOWN",
+      0
+     ],
+     [
+      "FPS_30",
+      1
+     ],
+     [
+      "FPS_60",
+      2
+     ],
+     [
+      "FPS_90",
+      3
+     ],
+     [
+      "FPS_144",
+      4
+     ]
+    ]
+   },
+   {
+    "name": "ClientType",
+    "values": [
+     [
+      "Client_UNSPECIFIED",
+      0
+     ],
+     [
+      "Client_IOS",
+      1
+     ],
+     [
+      "Client_ANDROID",
+      2
+     ],
+     [
+      "Client_WINDOWS",
+      3
+     ],
+     [
+      "Client_MAC",
+      4
+     ]
+    ]
+   },
+   {
+    "name": "VideoQuality",
+    "values": [
+     [
+      "VideoQuality_UNKNOWN",
+      0
+     ],
+     [
+      "VideoQuality_Fast",
+      1
+     ],
+     [
+      "VideoQuality_General",
+      2
+     ],
+     [
+      "VideoQuality_HD",
+      3
+     ],
+     [
+      "VideoQuality_Bluray",
+      4
+     ],
+     [
+      "VideoQuality_Auto",
+      5
+     ],
+     [
+      "VideoQuality_Custom",
+      6
+     ]
+    ]
+   },
+   {
+    "name": "CodecType",
+    "values": [
+     [
+      "CodecType_UNKNOWN",
+      0
+     ],
+     [
+      "CodecType_H264",
+      1
+     ],
+     [
+      "CodecType_H265",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "CaptureMode",
+    "values": [
+     [
+      "CaptureMode_UNKNOWN",
+      0
+     ],
+     [
+      "CaptureMode_DESKTOP",
+      1
+     ],
+     [
+      "CaptureMode_WINDOW",
+      2
+     ],
+     [
+      "CaptureMode_MUMU",
+      3
+     ],
+     [
+      "CaptureMode_HOOK",
+      4
+     ],
+     [
+      "CaptureMode_GLOBAL",
+      5
+     ]
+    ]
+   },
+   {
+    "name": "ScreenType",
+    "values": [
+     [
+      "ScreenType_Physics",
+      0
+     ],
+     [
+      "ScreenType_Virtual",
+      1
+     ],
+     [
+      "ScreenType_Super",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "ChooseResolutionType",
+    "values": [
+     [
+      "ChooseType_UNKNOWN",
+      0
+     ],
+     [
+      "ChooseType_DEFAULT",
+      1
+     ],
+     [
+      "ChooseType_FOLLOW_LOCAL",
+      2
+     ],
+     [
+      "ChooseType_FOLLOW_REMOTE",
+      3
+     ],
+     [
+      "ChooseType_RESOLUTION",
+      4
+     ]
+    ]
+   },
+   {
+    "name": "ChromaFormat",
+    "values": [
+     [
+      "ChromaFormat_UNKNOWN",
+      0
+     ],
+     [
+      "ChromaFormat_420",
+      1
+     ],
+     [
+      "ChromaFormat_422",
+      2
+     ],
+     [
+      "ChromaFormat_444",
+      3
+     ],
+     [
+      "ChromaFormat_400",
+      4
+     ]
+    ]
+   },
+   {
+    "name": "ControlConnectType",
+    "values": [
+     [
+      "ControlConnectType_UNKNOWN",
+      0
+     ],
+     [
+      "ControlConnectType_Normal",
+      1
+     ],
+     [
+      "ControlConnectType_Assistance",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "FileType",
+    "values": [
+     [
+      "FT_Dir",
+      0
+     ],
+     [
+      "FT_DirLink",
+      2
+     ],
+     [
+      "FT_DirDrive",
+      3
+     ],
+     [
+      "FT_File",
+      4
+     ],
+     [
+      "FT_FileLink",
+      5
+     ]
+    ]
+   },
+   {
+    "name": "FileOperationStrategy",
+    "values": [
+     [
+      "FOS_UNSPECIFIED",
+      0
+     ],
+     [
+      "FOS_OVERRIDE",
+      1
+     ],
+     [
+      "FOS_DUPLICATE",
+      2
+     ],
+     [
+      "FOS_SKIP",
+      3
+     ],
+     [
+      "FOS_RESUME",
+      4
+     ]
+    ]
+   },
+   {
+    "name": "FileTransferError",
+    "values": [
+     [
+      "FT_UNSPECIFIED",
+      0
+     ],
+     [
+      "FT_SUCCEEDED",
+      1
+     ],
+     [
+      "FT_UNEXPECTED_ERROR",
+      2
+     ],
+     [
+      "FT_PROTOCOL_ERROR",
+      3
+     ],
+     [
+      "FT_PERMISSION_DENIED",
+      4
+     ],
+     [
+      "FT_OUT_OF_DISK_SPACE",
+      5
+     ],
+     [
+      "FT_IO_ERROR",
+      6
+     ],
+     [
+      "FT_CANCELED",
+      7
+     ],
+     [
+      "FT_NOT_LOGGED_IN",
+      8
+     ],
+     [
+      "FT_FILE_NOT_FOUND",
+      9
+     ],
+     [
+      "FT_PAUSED",
+      10
+     ],
+     [
+      "FT_FILE_NOT_RESUMABLE",
+      11
+     ],
+     [
+      "FT_PERMISSION_AUTHORIZATION_PENDING",
+      12
+     ]
+    ]
+   },
+   {
+    "name": "ClipboardError",
+    "values": [
+     [
+      "CB_UNSPECIFIED",
+      0
+     ],
+     [
+      "CB_SUCCEEDED",
+      1
+     ],
+     [
+      "CB_FAILED",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "PrivateScreenType",
+    "values": [
+     [
+      "PS_UNSPECIFIED",
+      0
+     ],
+     [
+      "PS_NOT_SET",
+      1
+     ],
+     [
+      "PS_NORMAL_PRIVACY",
+      2
+     ],
+     [
+      "PS_ENHANCED_PRIVACY",
+      3
+     ]
+    ]
+   },
+   {
+    "name": "PermissionAuthState",
+    "values": [
+     [
+      "PERMISSION_STATE_UNKOWN",
+      0
+     ],
+     [
+      "PERMISSION_STATE_REJECT",
+      1
+     ],
+     [
+      "PERMISSION_STATE_ALLOW",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "BuiltinScreenType",
+    "values": [
+     [
+      "BS_UNKOWN",
+      0
+     ],
+     [
+      "BS_BUILTIN",
+      1
+     ],
+     [
+      "BS_NOT_BUILTIN",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "SystemSoundSupport",
+    "values": [
+     [
+      "SS_UNKOWN",
+      0
+     ],
+     [
+      "SS_NONSUPPORT",
+      1
+     ],
+     [
+      "SS_SUPPORT",
+      2
+     ]
+    ]
+   },
+   {
+    "name": "ScreenOrientation",
+    "values": [
+     [
+      "SO_UNSPECIFIED",
+      0
+     ],
+     [
+      "SO_LANDSCAPE",
+      1
+     ],
+     [
+      "SO_PORTRAIT",
+      2
+     ]
+    ]
+   }
+  ],
+  "offset": 24649440
+ },
+ "rpc_file_transfer.proto": {
+  "package": "gv_pb",
+  "deps": [
+   "defines.proto"
+  ],
+  "messages": [
+   {
+    "name": "FileRename",
+    "fields": [
+     {
+      "name": "path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "new_name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileDirCreate",
+    "fields": [
+     {
+      "name": "path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileRemoveFile",
+    "fields": [
+     {
+      "name": "path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileOperationResult",
+    "fields": [
+     {
+      "name": "file_error",
+      "num": 1,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "err_msg",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileExist",
+    "fields": [
+     {
+      "name": "path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "names",
+      "num": 2,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileExistResult",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "has_same",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "has_transfering",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileExistResponse",
+    "fields": [
+     {
+      "name": "path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "results",
+      "num": 2,
+      "type": "gv_pb.FileExistResult",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileEntry",
+    "fields": [
+     {
+      "name": "entry_type",
+      "num": 1,
+      "type": "gv_pb.FileType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "size",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "modified_time",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "full_path",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "icon_type",
+      "num": 6,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "TaskId",
+    "fields": [
+     {
+      "name": "task_id",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "file_index",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ReadDir",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DirectoryData",
+    "fields": [
+     {
+      "name": "entries",
+      "num": 1,
+      "type": "gv_pb.FileEntry",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileDirectory",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "entries",
+      "num": 3,
+      "type": "gv_pb.FileEntry",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "file_error",
+      "num": 4,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "dir_data",
+      "num": 5,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileRemoveDir",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "recursive",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferResult",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_error",
+      "num": 2,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "err_msg",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferComplete",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "error",
+      "num": 2,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferAsk",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "last_modified",
+      "num": 2,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "file_size",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferConfirm",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "skip",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "resume_point",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferBlock",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "block_id",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "data",
+      "num": 3,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferBlockConfirm",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "block_id",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "block_len",
+      "num": 4,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileInfo",
+    "fields": [
+     {
+      "name": "rel_path",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "size",
+      "num": 2,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "modified_time",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileList",
+    "fields": [
+     {
+      "name": "files",
+      "num": 1,
+      "type": "gv_pb.FileInfo",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DirectorySizeRead",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "size",
+      "num": 2,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferSendRequest",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "list_data",
+      "num": 3,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferSendResponse",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "err",
+      "num": 2,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "files",
+      "num": 3,
+      "type": "gv_pb.FileInfo",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "folder_name",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "list_data",
+      "num": 5,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ClearSendTemp",
+    "fields": [
+     {
+      "name": "task_unique_id",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferReceiveRequest",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "path",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "files",
+      "num": 3,
+      "type": "gv_pb.FileInfo",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "file_op_strategy",
+      "num": 4,
+      "type": "gv_pb.FileOperationStrategy",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "folder_name",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "list_data",
+      "num": 6,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     },
+     {
+      "name": "task_unique_id",
+      "num": 7,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferReceiveResponse",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "gv_pb.TaskId",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "files",
+      "num": 2,
+      "type": "gv_pb.FileInfo",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "err",
+      "num": 3,
+      "type": "gv_pb.FileTransferError",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileTransferFtpRequest",
+    "fields": [
+     {
+      "name": "receive_request",
+      "num": 1,
+      "type": "gv_pb.FileTransferReceiveRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "send_request",
+      "num": 2,
+      "type": "gv_pb.FileTransferSendRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_ask",
+      "num": 3,
+      "type": "gv_pb.FileTransferAsk",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_block",
+      "num": 4,
+      "type": "gv_pb.FileTransferBlock",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "rename",
+      "num": 5,
+      "type": "gv_pb.FileRename",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "dir_create",
+      "num": 6,
+      "type": "gv_pb.FileDirCreate",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remove_file",
+      "num": 7,
+      "type": "gv_pb.FileRemoveFile",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "remove_dir",
+      "num": 8,
+      "type": "gv_pb.FileRemoveDir",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "complete",
+      "num": 9,
+      "type": "gv_pb.FileTransferComplete",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "read_dir",
+      "num": 10,
+      "type": "gv_pb.ReadDir",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_exist",
+      "num": 11,
+      "type": "gv_pb.FileExist",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clear_send_temp",
+      "num": 12,
+      "type": "gv_pb.ClearSendTemp",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "dir_size_read",
+      "num": 13,
+      "type": "gv_pb.DirectorySizeRead",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   },
+   {
+    "name": "FileTransferFtpResponse",
+    "fields": [
+     {
+      "name": "receive_response",
+      "num": 1,
+      "type": "gv_pb.FileTransferReceiveResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "send_response",
+      "num": 2,
+      "type": "gv_pb.FileTransferSendResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_confirm",
+      "num": 3,
+      "type": "gv_pb.FileTransferConfirm",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "block_confirm",
+      "num": 4,
+      "type": "gv_pb.FileTransferBlockConfirm",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "operation_result",
+      "num": 5,
+      "type": "gv_pb.FileOperationResult",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "result",
+      "num": 6,
+      "type": "gv_pb.FileTransferResult",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_directory",
+      "num": 7,
+      "type": "gv_pb.FileDirectory",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "file_exist_response",
+      "num": 8,
+      "type": "gv_pb.FileExistResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24654544
+ },
+ "input_event.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "TouchEventPoint",
+    "fields": [
+     {
+      "name": "id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "x",
+      "num": 2,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "y",
+      "num": 3,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "radius_x",
+      "num": 4,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "radius_y",
+      "num": 5,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "angle",
+      "num": 6,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "pressure",
+      "num": 7,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "TouchEvent",
+    "fields": [
+     {
+      "name": "event_type",
+      "num": 1,
+      "type": "gv_pb.TouchEvent.TouchEventType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "touch_points",
+      "num": 2,
+      "type": "gv_pb.TouchEventPoint",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "TouchEventType",
+      "values": [
+       [
+        "TOUCH_POINT_UNDEFINED",
+        0
+       ],
+       [
+        "TOUCH_POINT_START",
+        1
+       ],
+       [
+        "TOUCH_POINT_MOVE",
+        2
+       ],
+       [
+        "TOUCH_POINT_END",
+        3
+       ],
+       [
+        "TOUCH_POINT_CANCEL",
+        4
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "InputEvent",
+    "fields": [
+     {
+      "name": "touch_event",
+      "num": 1,
+      "type": "gv_pb.TouchEvent",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24665600
+ },
+ "mumu.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "MumuInfo",
+    "fields": [
+     {
+      "name": "vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "name",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "run_status",
+      "num": 3,
+      "type": "gv_pb.MumuInfo.enumRunStatus",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "enumRunStatus",
+      "values": [
+       [
+        "kMumuRunStatusNotRun",
+        0
+       ],
+       [
+        "kMumuRunStatusProcessStart",
+        1
+       ],
+       [
+        "kMumuRunStatusCompleteCommunication",
+        2
+       ],
+       [
+        "kMumuRunStatusAndroidComplete",
+        3
+       ],
+       [
+        "kMumuRunStatusClosing",
+        4
+       ],
+       [
+        "kMumuRunStatusLaunchFailed",
+        5
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "MumuPlayerList",
+    "fields": [
+     {
+      "name": "get_all",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "list_info",
+      "num": 2,
+      "type": "gv_pb.MumuInfo",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "list_vm_index",
+      "num": 3,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "KeyValue",
+    "fields": [
+     {
+      "name": "key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "value",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "LanguageValue",
+    "fields": [
+     {
+      "name": "value",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "language_value",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "LanguageKeyValue",
+    "fields": [
+     {
+      "name": "key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "value",
+      "num": 2,
+      "type": "gv_pb.LanguageValue",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "OneKeyMultiValue",
+    "fields": [
+     {
+      "name": "key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_value",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "list_value",
+      "num": 3,
+      "type": "gv_pb.LanguageValue",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "Performance",
+    "fields": [
+     {
+      "name": "value",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "language_value",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "cpu_core_num",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "mem_value",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SettingRangePerformance",
+    "fields": [
+     {
+      "name": "key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_custom_cpu",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_custom_mem",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_value",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_custom_cpu",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_custom_mem",
+      "num": 6,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "list_range_custom_cpu",
+      "num": 7,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     },
+     {
+      "name": "list_range_custom_mem",
+      "num": 8,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     },
+     {
+      "name": "list_performance",
+      "num": 9,
+      "type": "gv_pb.Performance",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MinMax",
+    "fields": [
+     {
+      "name": "min",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "max",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "Resolution",
+    "fields": [
+     {
+      "name": "value",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "width",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "height",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "dpi",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SettingRangeResolution",
+    "fields": [
+     {
+      "name": "key",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_custom_resolution_width",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_custom_resolution_height",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "key_custom_resolution_dpi",
+      "num": 4,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_value",
+      "num": 5,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_custom_width",
+      "num": 6,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_custom_height",
+      "num": 7,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "current_custom_dpi",
+      "num": 8,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "range_resolution_width",
+      "num": 9,
+      "type": "gv_pb.MinMax",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "range_resolution_height",
+      "num": 10,
+      "type": "gv_pb.MinMax",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "range_resolution_dpi",
+      "num": 11,
+      "type": "gv_pb.MinMax",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "list_resolution",
+      "num": 12,
+      "type": "gv_pb.Resolution",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MumuSettingRange",
+    "fields": [
+     {
+      "name": "vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "language",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "render_list",
+      "num": 3,
+      "type": "gv_pb.OneKeyMultiValue",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "performance_list",
+      "num": 4,
+      "type": "gv_pb.SettingRangePerformance",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "resolution_list",
+      "num": 5,
+      "type": "gv_pb.SettingRangeResolution",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MumuSetting",
+    "fields": [
+     {
+      "name": "list_vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     },
+     {
+      "name": "type",
+      "num": 2,
+      "type": "gv_pb.MumuSetting.enumType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "set_or_get",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "map_key_value",
+      "num": 4,
+      "type": "gv_pb.MumuSetting.MapKeyValueEntry",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "get_setting_range",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "setting_range",
+      "num": 6,
+      "type": "gv_pb.MumuSettingRange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [
+     {
+      "name": "MapKeyValueEntry",
+      "fields": [
+       {
+        "name": "key",
+        "num": 1,
+        "type": "string",
+        "label": 1,
+        "raw_type": 9,
+        "repeated": false
+       },
+       {
+        "name": "value",
+        "num": 2,
+        "type": "string",
+        "label": 1,
+        "raw_type": 9,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [
+     {
+      "name": "enumType",
+      "values": [
+       [
+        "kMumuSettingLocal",
+        0
+       ],
+       [
+        "kMumuSettingGlobal",
+        1
+       ]
+      ]
+     }
+    ],
+    "oneofs": [
+     "_setting_range"
+    ]
+   },
+   {
+    "name": "MumuControl",
+    "fields": [
+     {
+      "name": "list_vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     },
+     {
+      "name": "type",
+      "num": 2,
+      "type": "gv_pb.MumuControl.enumType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "enumType",
+      "values": [
+       [
+        "kMumuControlLaunch",
+        0
+       ],
+       [
+        "kMumuControlShutdown",
+        1
+       ],
+       [
+        "kMumuControlRestart",
+        2
+       ],
+       [
+        "kMumuControlDelete",
+        3
+       ],
+       [
+        "kMumuControlCreate",
+        4
+       ],
+       [
+        "kMumuControlCopy",
+        5
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "MumuNotifySimple",
+    "fields": [
+     {
+      "name": "vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "type",
+      "num": 2,
+      "type": "gv_pb.enumMumuNotifyType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "error_code",
+      "num": 3,
+      "type": "gv_pb.enumMumuErrorCode",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MumuNotifyProcess",
+    "fields": [
+     {
+      "name": "vm_index",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "type",
+      "num": 2,
+      "type": "gv_pb.enumMumuNotifyType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "progress",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MumuOperate",
+    "fields": [
+     {
+      "name": "player_list",
+      "num": 1,
+      "type": "gv_pb.MumuPlayerList",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "control",
+      "num": 2,
+      "type": "gv_pb.MumuControl",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "setting",
+      "num": 3,
+      "type": "gv_pb.MumuSetting",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "setting_range",
+      "num": 4,
+      "type": "gv_pb.MumuSettingRange",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "notify_process",
+      "num": 5,
+      "type": "gv_pb.MumuNotifyProcess",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "notify_result",
+      "num": 6,
+      "type": "gv_pb.MumuNotifySimple",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [
+   {
+    "name": "enumMumuNotifyType",
+    "values": [
+     [
+      "kMumuNotifyLaunch",
+      0
+     ],
+     [
+      "kMumuNotifyShutdown",
+      1
+     ],
+     [
+      "kMumuNotifyRestart",
+      2
+     ],
+     [
+      "kMumuNotifyDelete",
+      3
+     ],
+     [
+      "kMumuNotifyCreate",
+      4
+     ],
+     [
+      "kMumuNotifyCopy",
+      5
+     ],
+     [
+      "kMumuNotifyPlayerCrash",
+      6
+     ],
+     [
+      "kMumuNotifyPlayerHeadlessCrash",
+      7
+     ]
+    ]
+   },
+   {
+    "name": "enumMumuErrorCode",
+    "values": [
+     [
+      "kMumuErrorCodeSuccess",
+      0
+     ],
+     [
+      "kMumuErrorCodeFailed",
+      1
+     ]
+    ]
+   }
+  ],
+  "offset": 24667296
+ },
+ "port_mapping.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "PortMappingFrame",
+    "fields": [
+     {
+      "name": "session_id",
+      "num": 1,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "rule_id",
+      "num": 2,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "stream_id",
+      "num": 3,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "type",
+      "num": 4,
+      "type": "gv_pb.PortMappingFrame.FrameType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "payload",
+      "num": 5,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "FrameType",
+      "values": [
+       [
+        "SYN",
+        0
+       ],
+       [
+        "FIN",
+        1
+       ],
+       [
+        "DATA",
+        2
+       ],
+       [
+        "SYN_ACK",
+        3
+       ],
+       [
+        "DATA_ACK",
+        4
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 24679232
+ },
+ "draw.proto": {
+  "package": "gv_pb",
+  "deps": [],
+  "messages": [
+   {
+    "name": "DrawPoint",
+    "fields": [
+     {
+      "name": "x",
+      "num": 1,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "y",
+      "num": 2,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DrawStrokeRequest",
+    "fields": [
+     {
+      "name": "stroke_id",
+      "num": 1,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "points",
+      "num": 2,
+      "type": "gv_pb.DrawPoint",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "screen_id",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "line_width",
+      "num": 4,
+      "type": "float",
+      "label": 1,
+      "raw_type": 2,
+      "repeated": false
+     },
+     {
+      "name": "color",
+      "num": 5,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "_screen_id",
+     "_line_width",
+     "_color"
+    ]
+   },
+   {
+    "name": "DrawStrokeResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DrawClearRequest",
+    "fields": [
+     {
+      "name": "clear_type",
+      "num": 1,
+      "type": "gv_pb.DrawClearRequest.ClearType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "stroke_id",
+      "num": 2,
+      "type": "uint32",
+      "label": 1,
+      "raw_type": 13,
+      "repeated": false
+     },
+     {
+      "name": "screen_id",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "ClearType",
+      "values": [
+       [
+        "CLEAR_TYPE_UNKNOWN",
+        0
+       ],
+       [
+        "CLEAR_TYPE_ALL",
+        1
+       ],
+       [
+        "CLEAR_TYPE_BY_ID",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": [
+     "_screen_id"
+    ]
+   },
+   {
+    "name": "DrawClearResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DrawToggleRequest",
+    "fields": [
+     {
+      "name": "enable",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DrawToggleResponse",
+    "fields": [
+     {
+      "name": "error_code",
+      "num": 1,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DrawRequest",
+    "fields": [
+     {
+      "name": "stroke_request",
+      "num": 1,
+      "type": "gv_pb.DrawStrokeRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clear_request",
+      "num": 2,
+      "type": "gv_pb.DrawClearRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "toggle_request",
+      "num": 3,
+      "type": "gv_pb.DrawToggleRequest",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   },
+   {
+    "name": "DrawResponse",
+    "fields": [
+     {
+      "name": "stroke_response",
+      "num": 1,
+      "type": "gv_pb.DrawStrokeResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "clear_response",
+      "num": 2,
+      "type": "gv_pb.DrawClearResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "toggle_response",
+      "num": 3,
+      "type": "gv_pb.DrawToggleResponse",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": [
+     "which"
+    ]
+   }
+  ],
+  "enums": [],
+  "offset": 24680464
+ },
+ "google/protobuf/descriptor.proto": {
+  "package": "google.protobuf",
+  "deps": [],
+  "messages": [
+   {
+    "name": "FileDescriptorSet",
+    "fields": [
+     {
+      "name": "file",
+      "num": 1,
+      "type": "google.protobuf.FileDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "package",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "dependency",
+      "num": 3,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     },
+     {
+      "name": "public_dependency",
+      "num": 10,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     },
+     {
+      "name": "weak_dependency",
+      "num": 11,
+      "type": "int32",
+      "label": 3,
+      "raw_type": 5,
+      "repeated": true
+     },
+     {
+      "name": "message_type",
+      "num": 4,
+      "type": "google.protobuf.DescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "enum_type",
+      "num": 5,
+      "type": "google.protobuf.EnumDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "service",
+      "num": 6,
+      "type": "google.protobuf.ServiceDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "extension",
+      "num": 7,
+      "type": "google.protobuf.FieldDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "options",
+      "num": 8,
+      "type": "google.protobuf.FileOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "source_code_info",
+      "num": 9,
+      "type": "google.protobuf.SourceCodeInfo",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "syntax",
+      "num": 12,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "DescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "field",
+      "num": 2,
+      "type": "google.protobuf.FieldDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "extension",
+      "num": 6,
+      "type": "google.protobuf.FieldDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "nested_type",
+      "num": 3,
+      "type": "google.protobuf.DescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "enum_type",
+      "num": 4,
+      "type": "google.protobuf.EnumDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "extension_range",
+      "num": 5,
+      "type": "google.protobuf.DescriptorProto.ExtensionRange",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "oneof_decl",
+      "num": 8,
+      "type": "google.protobuf.OneofDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "options",
+      "num": 7,
+      "type": "google.protobuf.MessageOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "reserved_range",
+      "num": 9,
+      "type": "google.protobuf.DescriptorProto.ReservedRange",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "reserved_name",
+      "num": 10,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     }
+    ],
+    "nested": [
+     {
+      "name": "ExtensionRange",
+      "fields": [
+       {
+        "name": "start",
+        "num": 1,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       },
+       {
+        "name": "end",
+        "num": 2,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       },
+       {
+        "name": "options",
+        "num": 3,
+        "type": "google.protobuf.ExtensionRangeOptions",
+        "label": 1,
+        "raw_type": 11,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     },
+     {
+      "name": "ReservedRange",
+      "fields": [
+       {
+        "name": "start",
+        "num": 1,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       },
+       {
+        "name": "end",
+        "num": 2,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ExtensionRangeOptions",
+    "fields": [
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FieldDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "number",
+      "num": 3,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "label",
+      "num": 4,
+      "type": "google.protobuf.FieldDescriptorProto.Label",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "type",
+      "num": 5,
+      "type": "google.protobuf.FieldDescriptorProto.Type",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "type_name",
+      "num": 6,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "extendee",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "default_value",
+      "num": 7,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "oneof_index",
+      "num": 9,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "json_name",
+      "num": 10,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "options",
+      "num": 8,
+      "type": "google.protobuf.FieldOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "proto3_optional",
+      "num": 17,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "Type",
+      "values": [
+       [
+        "TYPE_DOUBLE",
+        1
+       ],
+       [
+        "TYPE_FLOAT",
+        2
+       ],
+       [
+        "TYPE_INT64",
+        3
+       ],
+       [
+        "TYPE_UINT64",
+        4
+       ],
+       [
+        "TYPE_INT32",
+        5
+       ],
+       [
+        "TYPE_FIXED64",
+        6
+       ],
+       [
+        "TYPE_FIXED32",
+        7
+       ],
+       [
+        "TYPE_BOOL",
+        8
+       ],
+       [
+        "TYPE_STRING",
+        9
+       ],
+       [
+        "TYPE_GROUP",
+        10
+       ],
+       [
+        "TYPE_MESSAGE",
+        11
+       ],
+       [
+        "TYPE_BYTES",
+        12
+       ],
+       [
+        "TYPE_UINT32",
+        13
+       ],
+       [
+        "TYPE_ENUM",
+        14
+       ],
+       [
+        "TYPE_SFIXED32",
+        15
+       ],
+       [
+        "TYPE_SFIXED64",
+        16
+       ],
+       [
+        "TYPE_SINT32",
+        17
+       ],
+       [
+        "TYPE_SINT64",
+        18
+       ]
+      ]
+     },
+     {
+      "name": "Label",
+      "values": [
+       [
+        "LABEL_OPTIONAL",
+        1
+       ],
+       [
+        "LABEL_REQUIRED",
+        2
+       ],
+       [
+        "LABEL_REPEATED",
+        3
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "OneofDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "options",
+      "num": 2,
+      "type": "google.protobuf.OneofOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnumDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "value",
+      "num": 2,
+      "type": "google.protobuf.EnumValueDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "options",
+      "num": 3,
+      "type": "google.protobuf.EnumOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "reserved_range",
+      "num": 4,
+      "type": "google.protobuf.EnumDescriptorProto.EnumReservedRange",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "reserved_name",
+      "num": 5,
+      "type": "string",
+      "label": 3,
+      "raw_type": 9,
+      "repeated": true
+     }
+    ],
+    "nested": [
+     {
+      "name": "EnumReservedRange",
+      "fields": [
+       {
+        "name": "start",
+        "num": 1,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       },
+       {
+        "name": "end",
+        "num": 2,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnumValueDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "number",
+      "num": 2,
+      "type": "int32",
+      "label": 1,
+      "raw_type": 5,
+      "repeated": false
+     },
+     {
+      "name": "options",
+      "num": 3,
+      "type": "google.protobuf.EnumValueOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ServiceDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "method",
+      "num": 2,
+      "type": "google.protobuf.MethodDescriptorProto",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "options",
+      "num": 3,
+      "type": "google.protobuf.ServiceOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MethodDescriptorProto",
+    "fields": [
+     {
+      "name": "name",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "input_type",
+      "num": 2,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "output_type",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "options",
+      "num": 4,
+      "type": "google.protobuf.MethodOptions",
+      "label": 1,
+      "raw_type": 11,
+      "repeated": false
+     },
+     {
+      "name": "client_streaming",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "server_streaming",
+      "num": 6,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FileOptions",
+    "fields": [
+     {
+      "name": "java_package",
+      "num": 1,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "java_outer_classname",
+      "num": 8,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "java_multiple_files",
+      "num": 10,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "java_generate_equals_and_hash",
+      "num": 20,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "java_string_check_utf8",
+      "num": 27,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "optimize_for",
+      "num": 9,
+      "type": "google.protobuf.FileOptions.OptimizeMode",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "go_package",
+      "num": 11,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "cc_generic_services",
+      "num": 16,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "java_generic_services",
+      "num": 17,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "py_generic_services",
+      "num": 18,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "php_generic_services",
+      "num": 42,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "deprecated",
+      "num": 23,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "cc_enable_arenas",
+      "num": 31,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "objc_class_prefix",
+      "num": 36,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "csharp_namespace",
+      "num": 37,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "swift_prefix",
+      "num": 39,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "php_class_prefix",
+      "num": 40,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "php_namespace",
+      "num": 41,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "php_metadata_namespace",
+      "num": 44,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "ruby_package",
+      "num": 45,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "OptimizeMode",
+      "values": [
+       [
+        "SPEED",
+        1
+       ],
+       [
+        "CODE_SIZE",
+        2
+       ],
+       [
+        "LITE_RUNTIME",
+        3
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "MessageOptions",
+    "fields": [
+     {
+      "name": "message_set_wire_format",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "no_standard_descriptor_accessor",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "deprecated",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "map_entry",
+      "num": 7,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "FieldOptions",
+    "fields": [
+     {
+      "name": "ctype",
+      "num": 1,
+      "type": "google.protobuf.FieldOptions.CType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "packed",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "jstype",
+      "num": 6,
+      "type": "google.protobuf.FieldOptions.JSType",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "lazy",
+      "num": 5,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "unverified_lazy",
+      "num": 15,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "deprecated",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "weak",
+      "num": 10,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "CType",
+      "values": [
+       [
+        "STRING",
+        0
+       ],
+       [
+        "CORD",
+        1
+       ],
+       [
+        "STRING_PIECE",
+        2
+       ]
+      ]
+     },
+     {
+      "name": "JSType",
+      "values": [
+       [
+        "JS_NORMAL",
+        0
+       ],
+       [
+        "JS_STRING",
+        1
+       ],
+       [
+        "JS_NUMBER",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "OneofOptions",
+    "fields": [
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnumOptions",
+    "fields": [
+     {
+      "name": "allow_alias",
+      "num": 2,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "deprecated",
+      "num": 3,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "EnumValueOptions",
+    "fields": [
+     {
+      "name": "deprecated",
+      "num": 1,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "ServiceOptions",
+    "fields": [
+     {
+      "name": "deprecated",
+      "num": 33,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "MethodOptions",
+    "fields": [
+     {
+      "name": "deprecated",
+      "num": 33,
+      "type": "bool",
+      "label": 1,
+      "raw_type": 8,
+      "repeated": false
+     },
+     {
+      "name": "idempotency_level",
+      "num": 34,
+      "type": "google.protobuf.MethodOptions.IdempotencyLevel",
+      "label": 1,
+      "raw_type": 14,
+      "repeated": false
+     },
+     {
+      "name": "uninterpreted_option",
+      "num": 999,
+      "type": "google.protobuf.UninterpretedOption",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [],
+    "enums": [
+     {
+      "name": "IdempotencyLevel",
+      "values": [
+       [
+        "IDEMPOTENCY_UNKNOWN",
+        0
+       ],
+       [
+        "NO_SIDE_EFFECTS",
+        1
+       ],
+       [
+        "IDEMPOTENT",
+        2
+       ]
+      ]
+     }
+    ],
+    "oneofs": []
+   },
+   {
+    "name": "UninterpretedOption",
+    "fields": [
+     {
+      "name": "name",
+      "num": 2,
+      "type": "google.protobuf.UninterpretedOption.NamePart",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     },
+     {
+      "name": "identifier_value",
+      "num": 3,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     },
+     {
+      "name": "positive_int_value",
+      "num": 4,
+      "type": "uint64",
+      "label": 1,
+      "raw_type": 4,
+      "repeated": false
+     },
+     {
+      "name": "negative_int_value",
+      "num": 5,
+      "type": "int64",
+      "label": 1,
+      "raw_type": 3,
+      "repeated": false
+     },
+     {
+      "name": "double_value",
+      "num": 6,
+      "type": "double",
+      "label": 1,
+      "raw_type": 1,
+      "repeated": false
+     },
+     {
+      "name": "string_value",
+      "num": 7,
+      "type": "bytes",
+      "label": 1,
+      "raw_type": 12,
+      "repeated": false
+     },
+     {
+      "name": "aggregate_value",
+      "num": 8,
+      "type": "string",
+      "label": 1,
+      "raw_type": 9,
+      "repeated": false
+     }
+    ],
+    "nested": [
+     {
+      "name": "NamePart",
+      "fields": [
+       {
+        "name": "name_part",
+        "num": 1,
+        "type": "string",
+        "label": 2,
+        "raw_type": 9,
+        "repeated": false
+       },
+       {
+        "name": "is_extension",
+        "num": 2,
+        "type": "bool",
+        "label": 2,
+        "raw_type": 8,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "SourceCodeInfo",
+    "fields": [
+     {
+      "name": "location",
+      "num": 1,
+      "type": "google.protobuf.SourceCodeInfo.Location",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [
+     {
+      "name": "Location",
+      "fields": [
+       {
+        "name": "path",
+        "num": 1,
+        "type": "int32",
+        "label": 3,
+        "raw_type": 5,
+        "repeated": true
+       },
+       {
+        "name": "span",
+        "num": 2,
+        "type": "int32",
+        "label": 3,
+        "raw_type": 5,
+        "repeated": true
+       },
+       {
+        "name": "leading_comments",
+        "num": 3,
+        "type": "string",
+        "label": 1,
+        "raw_type": 9,
+        "repeated": false
+       },
+       {
+        "name": "trailing_comments",
+        "num": 4,
+        "type": "string",
+        "label": 1,
+        "raw_type": 9,
+        "repeated": false
+       },
+       {
+        "name": "leading_detached_comments",
+        "num": 6,
+        "type": "string",
+        "label": 3,
+        "raw_type": 9,
+        "repeated": true
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [],
+    "oneofs": []
+   },
+   {
+    "name": "GeneratedCodeInfo",
+    "fields": [
+     {
+      "name": "annotation",
+      "num": 1,
+      "type": "google.protobuf.GeneratedCodeInfo.Annotation",
+      "label": 3,
+      "raw_type": 11,
+      "repeated": true
+     }
+    ],
+    "nested": [
+     {
+      "name": "Annotation",
+      "fields": [
+       {
+        "name": "path",
+        "num": 1,
+        "type": "int32",
+        "label": 3,
+        "raw_type": 5,
+        "repeated": true
+       },
+       {
+        "name": "source_file",
+        "num": 2,
+        "type": "string",
+        "label": 1,
+        "raw_type": 9,
+        "repeated": false
+       },
+       {
+        "name": "begin",
+        "num": 3,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       },
+       {
+        "name": "end",
+        "num": 4,
+        "type": "int32",
+        "label": 1,
+        "raw_type": 5,
+        "repeated": false
+       }
+      ],
+      "nested": [],
+      "enums": [],
+      "oneofs": []
+     }
+    ],
+    "enums": [],
+    "oneofs": []
+   }
+  ],
+  "enums": [],
+  "offset": 27685888
+ }
+}

@@ -1,0 +1,27 @@
+# build output
+build/
+dist/
+/gen/
+*.pb.cc
+*.pb.h
+*.pb.o
+*.o
+*.a
+*.so
+*.exe
+*.desc
+
+# python
+__pycache__/
+*.pyc
+
+# editor / os
+.vscode/
+.idea/
+.DS_Store
+
+# large or vendor binaries - never commit
+*.dll
+*.sys
+*.zip
+*.7z

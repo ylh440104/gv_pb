@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package gv_pb;
+
+message DrawPoint {
+  float x = 1;
+  float y = 2;
+}
+
+message DrawStrokeRequest {
+  uint32 stroke_id = 1;
+  repeated DrawPoint points = 2;
+  int32 screen_id = 3;
+  float line_width = 4;
+  uint32 color = 5;
+}
+
+message DrawStrokeResponse {
+  int32 error_code = 1;
+}
+
+message DrawClearRequest {
+  enum ClearType {
+    CLEAR_TYPE_UNKNOWN = 0;
+    CLEAR_TYPE_ALL = 1;
+    CLEAR_TYPE_BY_ID = 2;
+  }
+  ClearType clear_type = 1;
+  uint32 stroke_id = 2;
+  int32 screen_id = 3;
+}
+
+message DrawClearResponse {
+  int32 error_code = 1;
+}
+
+message DrawToggleRequest {
+  bool enable = 1;
+}
+
+message DrawToggleResponse {
+  int32 error_code = 1;
+}
+
+message DrawRequest {
+  DrawStrokeRequest stroke_request = 1;
+  DrawClearRequest clear_request = 2;
+  DrawToggleRequest toggle_request = 3;
+}
+
+message DrawResponse {
+  DrawStrokeResponse stroke_response = 1;
+  DrawClearResponse clear_response = 2;
+  DrawToggleResponse toggle_response = 3;
+}

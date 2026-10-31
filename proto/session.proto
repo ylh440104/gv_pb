@@ -1,0 +1,353 @@
+syntax = "proto3";
+
+import "defines.proto";
+import "feature_flag.proto";
+
+package gv_pb;
+
+message CaptureParams {
+  FPS fps = 1;
+  VideoQuality video_quality = 2;
+  bool cursor_capture = 3;
+  ChooseResolutionType choose_resolution_type = 4;
+  ScreenResolution local_resolution = 5;
+  ScreenResolution choose_resolution = 6;
+  ChromaFormat chroma_format = 7;
+  int32 max_custom_bitrate = 8;
+  bool enable_hdr = 9;
+  VideoQuality auto_frame_quality = 10;
+  int32 fpsCount = 11;
+}
+
+message DecoderCap {
+  int32 fps = 1;
+  CodecType codec_type = 2;
+  int32 resolution_width = 3;
+  int32 resolution_height = 4;
+  ChromaFormat chroma_format = 5;
+}
+
+message VirtualDisplayMode {
+  int32 width = 1;
+  int32 height = 2;
+  int32 VSync = 3;
+}
+
+message VirtualDisplayInitResolution {
+  int32 width = 1;
+  int32 height = 2;
+}
+
+message ConnectOptions {
+  enum Type {
+    CT_UNKNOWN = 0;
+    CT_DESKTOP = 1;
+    CT_WINDOW = 2;
+    CT_MUMU = 3;
+    CT_HOOK = 4;
+    CT_FILETRANSFER = 5;
+    CT_SECOND_SCREEN = 6;
+    CT_QUICKLAUNCH = 7;
+    CT_TERMINAL = 8;
+    CT_PORTMAPPING = 9;
+  }
+  Type capture_type = 1;
+  int32 type_value = 2;
+  CaptureParams capture_params = 3;
+  repeated DecoderCap decoder_cap_list = 4;
+  bool force_virtual_display = 5;
+  repeated VirtualDisplayMode virtual_display_modes = 6;
+  VirtualDisplayInitResolution virtual_display_init_resolution = 7;
+  ClientType client_type = 8;
+  string device_id = 9;
+  ControlConnectType control_connect_type = 10;
+  FeatureFlag feature_flag = 11;
+  string client_version = 12;
+}
+
+message EncoderCap {
+  CaptureMode capture_mode = 1;
+  int32 fps = 2;
+  CodecType corec_type = 3;
+  int32 resolution_width = 4;
+  int32 resolution_height = 5;
+}
+
+message CodecNegotiation {
+  repeated EncoderCap encoder_cap_list = 1;
+}
+
+message ActionKeyToggle {
+  enum KeyType {
+    UNKNOWN = 0;
+    CAPS_LOCK = 1;
+    NUM_LOCK = 2;
+    SCROLL_LOCK = 3;
+  }
+  enum Toggle {
+    TOGGLE = 0;
+    OFF = 1;
+    ON = 2;
+  }
+  KeyType key_type = 1;
+  Toggle toggle = 2;
+}
+
+message SimpleAction {
+  enum ActionType {
+    ACTION_TYPE_ECHO_REQUEST = 0;
+    ACTION_TYPE_ECHO_RESPONSE = 1;
+    ACTION_TYPE_SHOW_DESKTOP = 2;
+    ACTION_TYPE_SHOW_WINDOWS = 3;
+    ACTION_TYPE_CAPTURE_DESKTOP = 4;
+    ACTION_TYPE_CAPTURE_WINDOW = 5;
+    ACTION_TYPE_CAPTURE_MUMU = 6;
+    ACTION_TYPE_STOP_CAPTURE = 7;
+    ACTION_TYPE_RESTART_CAPTURE = 8;
+    ACTION_TYPE_REBOOT_SYSTEM = 9;
+    ACTION_TYPE_LOCK_SYSTEM = 10;
+    ACTION_TYPE_KEY_TOGGLE = 11;
+    ACTION_TYPE_SHUTDOWN_SYSTEM = 12;
+    ACTION_TYPE_SHOW_TASKMGR = 13;
+    ACTION_TYPE_MUTE_SYSTEM = 14;
+    ACTION_TYPE_AUTO_UNLOCK_SYSTEM = 15;
+    ACTION_TYPE_MUTE_RESTORE = 16;
+    ACTION_TYPE_MUTE_PERMANENT = 17;
+    ACTION_TYPE_MUTE_TEMPORARY = 18;
+    ACTION_TYPE_SET_AUTO_LOCK = 19;
+    ACTION_TYPE_STOP_ACQUIRE_UPDATE = 20;
+    ACTION_TYPE_QUIT_CAPTURE = 21;
+    ACTION_TYPE_ACQUIRE_SYSTEM_INFO = 22;
+    ACTION_TYPE_MICROPHONE_OPENED = 23;
+    ACTION_TYPE_MICROPHONE_CLOSED = 24;
+    ACTION_TYPE_SPEAKER_OPENED = 25;
+    ACTION_TYPE_SPEAKER_CLOSED = 26;
+    ACTION_TYPE_NEED_RESTART_USERAPP = 27;
+  }
+  ActionType action = 1;
+  string args = 2;
+  ActionKeyToggle key_toggle = 3;
+  FeatureFlag feature_flag = 4;
+  uint32 value = 5;
+}
+
+message LaunchApp {
+  string dapp_id = 1;
+  string name = 2;
+  string target_path = 3;
+  string args = 4;
+  string app_key = 5;
+}
+
+message ShowApp {
+  string dapp_id = 1;
+  string name = 2;
+  string target_path = 3;
+  string args = 4;
+}
+
+message WinRect {
+  int32 left = 1;
+  int32 top = 2;
+  int32 width = 3;
+  int32 height = 4;
+  int32 pixel_width = 5;
+  int32 pixel_height = 6;
+}
+
+message DpiScale {
+  int32 current_dpi = 1;
+  int32 recommended_dpi = 2;
+  repeated int32 dpis = 3;
+}
+
+message Screen {
+  int32 id = 1;
+  int32 fps = 2;
+  repeated WinRect resolutions = 3;
+  WinRect current_resolution = 4;
+  ScreenType screen_type = 5;
+  WinRect init_resolution = 6;
+  bool is_primary_screen = 7;
+  double dpr = 8;
+  DpiScale dpi_scale = 9;
+  string display_name = 10;
+  ChooseResolutionType resolution_type = 11;
+  int32 video_track_index = 12;
+  BuiltinScreenType builtin_screen_type = 13;
+}
+
+message ScreenSources {
+  repeated Screen screens = 1;
+  int32 current_screen_id = 2;
+}
+
+message CaptureChange {
+  enum Type {
+    CT_DESKTOP = 0;
+    CT_WINDOW = 1;
+    CT_MUMU = 2;
+    CT_HOOK = 3;
+    CT_NONE = 99;
+  }
+  Type capture_type = 1;
+  int32 type_value = 2;
+  string desc = 3;
+}
+
+message ReportError {
+  enum Action {
+    RE_ACTION_CAPTURE_DESKTOP = 0;
+    RE_ACTION_CAPTURE_WINDOW = 1;
+    RE_ACTION_CAPTURE_MUMU = 2;
+    RE_ACTION_CAPTURE_HOOK = 3;
+  }
+  Action action = 1;
+  int32 error_code = 2;
+  string error_msg = 3;
+  int32 type_value = 4;
+}
+
+message ReportQosStats {
+  string encoder_type = 1;
+  string capture_type = 2;
+  uint64 probe_bps = 3;
+  VideoQuality video_quality = 4;
+  uint64 fast_bitrate = 5;
+  uint64 general_bitrate = 6;
+  uint64 hd_bitrate = 7;
+  uint64 bluray_bitrate = 8;
+}
+
+message ClipboardChange {
+  enum Type {
+    UNKNOWN = 0;
+    TEXT = 1;
+  }
+  uint32 content_id = 1;
+  string content = 2;
+  bool to_be_continued = 3;
+}
+
+message ActiveWindowChange {
+  string win_info = 1;
+}
+
+message CaptureConfig {
+  enum FPSValue {
+    FPS_30 = 0;
+    FPS_60 = 1;
+    FPS_90 = 2;
+    FPS_144 = 3;
+  }
+  enum FrameQuality {
+    QUALITY_Unknown = 0;
+    QUALITY_Fast = 1;
+    QUALITY_General = 2;
+    QUALITY_HD = 3;
+    QUALITY_Bluray = 4;
+    QUALITY_Auto = 5;
+  }
+  enum ClientType {
+    Client_IOS = 0;
+    Client_MAC = 1;
+    Client_ANDROID = 2;
+    Client_WINDOWS = 3;
+  }
+  ClientType client = 1;
+  FPSValue fps = 2;
+  FrameQuality frame_quality = 3;
+  bool cursor_capture = 4;
+  int32 screen_id = 5;
+  int32 resolution_width = 6;
+  int32 resolution_height = 7;
+  int64 config_flag = 8;
+}
+
+message CaptureConfigResponse {
+  int64 request_seq = 1;
+  int64 config_flag = 2;
+  int32 err_code = 3;
+  string error_message = 4;
+}
+
+message RomMessage {
+  string name = 1;
+  string value = 2;
+  int32 index = 3;
+  bytes byte_value = 4;
+}
+
+message SendToRom {
+  enum MessageType {
+    RomMsg_VINPUT = 0;
+    RomMsg_Text = 1;
+    RomMsg_Snapshot = 2;
+    RomMsg_TabManage = 3;
+    RomMsg_Rotation = 4;
+    RomMsg_Volume = 5;
+  }
+  MessageType input_type = 1;
+  string input_msg = 2;
+  int32 index = 3;
+}
+
+message GeneralMetric {
+  bool support_touch = 1;
+  SystemSoundSupport system_sound_support = 2;
+  int32 win_os_ver = 3;
+}
+
+message SettingMetric {
+  bool keep_mute = 1;
+  bool mute_permanent = 2;
+  bool auto_lock = 3;
+  bool private_screen = 4;
+  string file_transfer_save_location = 5;
+  bool virtual_mouse_switch = 6;
+  PrivateScreenType private_screen_type = 7;
+  PermissionAuthState capture_permission_state = 8;
+  PermissionAuthState operation_permission_state = 9;
+  PermissionAuthState control_allowed_state = 10;
+}
+
+message SystemMetrics {
+  enum Metric {
+    METRIC_MUMU = 0;
+    METRIC_GENERAL = 1;
+    METRIC_SETTING = 2;
+  }
+  repeated Metric metrics = 1;
+  string response = 2;
+  GeneralMetric general = 3;
+  SettingMetric setting = 4;
+}
+
+message LaunchCloudPcApp {
+  string dapp_id = 1;
+  string cpc_app_id = 2;
+  string name = 3;
+  string target_path = 4;
+  string args = 5;
+}
+
+message RemoteDownloadPath {
+  string download_path = 1;
+}
+
+message CaptureSettingSync {
+  FPS fps = 1;
+  VideoQuality frame_quality = 2;
+  ChromaFormat chroma_format = 3;
+  int32 max_custom_bitrate = 4;
+  int32 resolution_width = 5;
+  int32 resolution_height = 6;
+  ChooseResolutionType resolution_type = 7;
+  int32 dpi_scale = 8;
+  int32 resolution_pixel_width = 9;
+  int32 resolution_pixel_height = 10;
+  ScreenOrientation screen_orientation = 11;
+}
+
+message TerminalSessionChanged {
+}

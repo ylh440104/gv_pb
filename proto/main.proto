@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "input_event.proto";
+import "mumu.proto";
+import "notification.proto";
+import "port_mapping.proto";
+import "rpc_main.proto";
+import "session.proto";
+
+package gv_pb;
+
+message Message {
+  int64 seq = 1;
+  int64 timestamp = 2;
+  SimpleAction simple_action = 3;
+  LaunchApp launch_app = 4;
+  ShowApp show_app = 5;
+  MumuOperate mumu_operate = 6;
+  ScreenSources screens = 7;
+  CaptureChange capture_change = 8;
+  CaptureConfig capture_config = 9;
+  RomMessage rom_message = 10;
+  SendToRom send_to_rom = 11;
+  ReportError report_error = 12;
+  SystemMetrics system_metrics = 13;
+  ReportQosStats report_qos_stats = 14;
+  SystemStateChange system_state_change = 15;
+  QuerySystemState query_system_state = 16;
+  ClipboardChange clipboard_change = 17;
+  CodecNegotiation codec_negotiation = 18;
+  CaptureConfigResponse capture_config_response = 19;
+  InputEvent input_event = 20;
+  RpcRequest rpc_request = 21;
+  RpcResponse rpc_response = 22;
+  ActiveWindowChange active_window_change = 23;
+  LaunchCloudPcApp launch_cloud_pc_app = 24;
+  CaptureSettingSync capture_setting_sync = 25;
+  RemoteDownloadPath remote_download_path = 26;
+  PortMappingFrame port_mapping_frame = 27;
+  TerminalSessionChanged terminal_session_changed = 28;
+}

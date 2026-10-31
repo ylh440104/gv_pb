@@ -165,6 +165,8 @@ POST /api/v1/room/clear/by_device/<id>
 | `scripts/extract_rtti.py` | PE 提取 C++ 符号 |
 
 ```
+rustc -O -o sign_check scripts/sign_check.rs && ./sign_check
+
 cargo test
 cargo run --bin login_probe -- sign --path /api/v1/login/check_uu_token --ts 1700000000
 cargo run --bin login_probe -- qr
@@ -178,6 +180,9 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 ctest --test-dir build --output-on-failure
 ```
+
+`scripts/sign_check.rs` 不依赖任何 crate，自带 SHA-256 与 HMAC 实现，用
+RFC 4231 向量和 `analysis/sign_vectors.json` 双重校验签名契约。
 
 ## 交叉验证
 

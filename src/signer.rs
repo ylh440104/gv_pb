@@ -251,4 +251,18 @@ mod tests {
         let b = s.signature("GET", "/p", &s.params(2), "");
         assert_ne!(a, b);
     }
+
+    #[test]
+    fn known_vector_matches_analysis() {
+        let s = RequestSigner::default();
+        let params = s.params(1700000000);
+        assert_eq!(
+            RequestSigner::payload("POST", "/api/v1/login/check_uu_token", &params, "{}"),
+            "POST/api/v1/login/check_uu_tokenx-param-chn=nochannel&x-param-cnt=CN&x-param-lang=zh_CN&x-param-pkgn=com.netease.uuremote&x-param-plat=1&x-param-rel=1&x-param-ts=1700000000&x-param-vc=44504318&x-param-vn=4.45.0.4318{}"
+        );
+        assert_eq!(
+            s.signature("POST", "/api/v1/login/check_uu_token", &params, "{}"),
+            "489630636a59f4ebf53b720b87abd5d6b6cfd4435809b88d14a27bc04b7c6709"
+        );
+    }
 }

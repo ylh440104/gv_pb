@@ -1,0 +1,26 @@
+{
+  "sign_key": "alWiSzXZTLu3WfFnw13uBru3",
+  "plugin_sign_key": "oK5zJ1zJ5cF6kK9eW2jM8oF3",
+  "base_url": "https://api.nrd.nie.163.com",
+  "vectors": [
+    {
+      "name": "login_check_uu_token",
+      "method": "POST",
+      "path": "/api/v1/login/check_uu_token",
+      "body": "{}",
+      "timestamp": 1700000000,
+      "params": {
+        "x-param-plat": "1",
+        "x-param-vn": "4.45.0.4318",
+        "x-param-vc": "44504318",
+        "x-param-pkgn": "com.netease.uuremote",
+        "x-param-chn": "nochannel",
+        "x-param-lang": "zh_CN",
+        "x-param-cnt": "CN",
+        "x-param-rel": "1"
+      },
+      "payload": "POST/api/v1/login/check_uu_tokenx-param-chn=nochannel&x-param-cnt=CN&x-param-lang=zh_CN&x-param-pkgn=com.netease.uuremote&x-param-plat=1&x-param-rel=1&x-param-ts=1700000000&x-param-vc=44504318&x-param-vn=4.45.0.4318{}",
+      "signature": "489630636a59f4ebf53b720b87abd5d6b6cfd4435809b88d14a27bc04b7c6709"
+    }
+  ]
+}

@@ -7,39 +7,65 @@ on:
   workflow_dispatch:
 
 jobs:
-  rust:
-    name: rust
+  sign:
+    name: sign
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
       - name: Toolchain
         run: |
-          rustup toolchain install stable --profile minimal --component clippy
+          rustup toolchain install stable --profile minimal
+          rustup default stable
+          rustc --version
+
+      - name: Verify signing contract
+        run: |
+          rustc -O -o sign_check scripts/sign_check.rs
+          ./sign_check
+
+      - name: Cross check with python hmac
+        run: |
+          python3 - <<'PY'
+          import hashlib, hmac, json
+          v = json.load(open('analysis/sign_vectors.json'))
+          for case in v['vectors']:
+              want = hmac.new(v['sign_key'].encode(), case['payload'].encode(), hashlib.sha256).hexdigest()
+              assert want == case['signature'], (case['name'], want, case['signature'])
+              print(case['name'], 'ok', want)
+          PY
+
+  client:
+    name: client
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component clippy rustfmt
           rustup default stable
           cargo --version
-          rustc --version
 
       - name: Format
         run: cargo fmt --all -- --check
 
-      - name: Clippy
+      - name: Lint
         run: cargo clippy --all-targets -- -D warnings
-
-      - name: Build
-        run: cargo build --all-targets --release
 
       - name: Test
         run: cargo test --all-targets -- --nocapture
 
-      - name: Signature self-check
+      - name: Build
+        run: cargo build --release --all-targets
+
+      - name: Sign self check
         run: |
           cargo run --release --bin login_probe -- sign \
             --path /api/v1/login/check_uu_token \
             --method POST \
             --body '{}' \
-            --ts 1700000000 \
-            --device-id dev --client-id cli --system-id sys
+            --ts 1700000000
 
   proto:
     name: proto
@@ -57,36 +83,36 @@ jobs:
           sudo apt-get install -y -qq protobuf-compiler
           protoc --version
 
-      - name: Rebuild proto from schema
+      - name: Regenerate from schema
         run: |
           mkdir -p /tmp/regen
           python3 scripts/gen_proto.py analysis/schema.json -o /tmp/regen
 
-      - name: Compare with committed proto
+      - name: Compare with repository
         run: |
           status=0
-          for f in /tmp/regen/*.proto; do
-            name=$(basename "$f")
-            if ! diff -q "proto/$name" "$f" > /dev/null; then
-              echo "::error file=proto/$name::does not match schema.json"
-              diff "proto/$name" "$f" || true
+          for item in /tmp/regen/*.proto; do
+            name=$(basename "$item")
+            if ! diff -q "proto/$name" "$item" > /dev/null; then
+              echo "::error file=proto/$name::differs from schema.json"
+              diff "proto/$name" "$item" || true
               status=1
             fi
           done
           exit $status
 
-      - name: Compile proto
+      - name: Compile
         run: |
           mkdir -p /tmp/pbout
           protoc --cpp_out=/tmp/pbout -Iproto proto/*.proto
-          echo "protoc accepted every file"
+          echo compiled
 
       - name: Descriptor set
         run: |
           mkdir -p dist
           protoc --include_imports --descriptor_set_out=dist/gv_pb.desc -Iproto proto/*.proto
           protoc --decode_raw < dist/gv_pb.desc > /dev/null
-          ls -l dist/gv_pb.desc
+          wc -c dist/gv_pb.desc
 
       - name: Python roundtrip
         run: |
@@ -98,19 +124,19 @@ jobs:
           sys.path.insert(0, '/tmp/pymods')
           import main_pb2, defines_pb2, input_event_pb2
 
-          m = main_pb2.Message()
-          m.seq = 4242
-          m.timestamp = 1700000000
-          m.rpc_request.request_header.request_id = 9
-          cs = m.rpc_request.capture_setting
-          cs.fps = defines_pb2.FPS_144
-          cs.frame_quality = defines_pb2.VideoQuality_Bluray
-          cs.codec_type = defines_pb2.CodecType_H265
-          cs.resolution_width = 3840
-          cs.resolution_height = 2160
-          cs.chorma_format = defines_pb2.ChromaFormat_444
+          msg = main_pb2.Message()
+          msg.seq = 4242
+          msg.timestamp = 1700000000
+          msg.rpc_request.request_header.request_id = 9
+          capture = msg.rpc_request.capture_setting
+          capture.fps = defines_pb2.FPS_144
+          capture.frame_quality = defines_pb2.VideoQuality_Bluray
+          capture.codec_type = defines_pb2.CodecType_H265
+          capture.resolution_width = 3840
+          capture.resolution_height = 2160
+          capture.chorma_format = defines_pb2.ChromaFormat_444
 
-          blob = m.SerializeToString()
+          blob = msg.SerializeToString()
           back = main_pb2.Message()
           back.ParseFromString(blob)
           assert back.seq == 4242
@@ -118,24 +144,24 @@ jobs:
           assert back.rpc_request.capture_setting.fps == defines_pb2.FPS_144
           assert back.rpc_request.capture_setting.resolution_width == 3840
           assert back.rpc_request.capture_setting.chorma_format == defines_pb2.ChromaFormat_444
-          print('message roundtrip ok', len(blob), blob.hex())
+          print('message', len(blob), blob.hex())
 
-          ie = input_event_pb2.InputEvent()
-          ie.touch_event.event_type = 5
-          pt = ie.touch_event.touch_points.add()
-          pt.id, pt.x, pt.y = 1, 123.5, 456.25
-          raw = ie.SerializeToString()
+          event = input_event_pb2.InputEvent()
+          event.touch_event.event_type = 5
+          point = event.touch_event.touch_points.add()
+          point.id, point.x, point.y = 1, 123.5, 456.25
+          raw = event.SerializeToString()
           reread = input_event_pb2.InputEvent()
           reread.ParseFromString(raw)
           assert reread.touch_event.touch_points[0].x == 123.5
-          print('input roundtrip ok', raw.hex())
+          print('input', raw.hex())
 
           assert len(main_pb2.Message.DESCRIPTOR.fields) == 28
-          print('envelope arms ok')
+          print('arms 28')
           PY
 
-  cpp:
-    name: cpp
+  wire:
+    name: wire
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4

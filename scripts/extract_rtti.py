@@ -1,45 +1,31 @@
-#!/usr/bin/env python3
-"""
-extract_rtti.py - Recover C++ RTTI class/namespace names from a PE image.
-
-MSVC emits RTTI type descriptors as ".?AV<name>@<namespace>@@". This tool pulls
-every one out and converts the MSVC mangling into C++ "ns::Class" form.
-
-Usage:
-    python3 extract_rtti.py <binary.exe> [-o out.txt]
-"""
+import argparse
 import re
 import sys
-import argparse
 
-PAT = re.compile(rb'\.\?A[VU]([^\x00]{2,240}?)@@')
-
-
-def demangle(raw: bytes) -> str:
-    s = raw.decode('latin1')
-    s = s.replace('@@', '')
-    s = s.replace('@', '::')
-    return s
+PATTERN = re.compile(rb'\.\?A[VU]([^\x00]{2,240}?)@@')
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument('binary')
-    ap.add_argument('-o', '--out', default=None)
-    a = ap.parse_args()
+def convert(raw):
+    name = raw.decode('latin1')
+    return name.replace('@@', '').replace('@', '::')
 
-    data = open(a.binary, 'rb').read()
-    names = set()
-    for m in PAT.finditer(data):
-        names.add(demangle(m.group(1)))
 
-    out = '\n'.join(sorted(names))
-    if a.out:
-        open(a.out, 'w').write(out + '\n')
-        print('wrote %d symbols to %s' % (len(names), a.out))
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('binary')
+    parser.add_argument('-o', '--out')
+    args = parser.parse_args()
+
+    data = open(args.binary, 'rb').read()
+    names = sorted({convert(m.group(1)) for m in PATTERN.finditer(data)})
+    body = '\n'.join(names) + '\n'
+
+    if args.out:
+        open(args.out, 'w', encoding='utf-8').write(body)
+        print('wrote %d symbols to %s' % (len(names), args.out), file=sys.stderr)
     else:
-        print(out)
-    print('total: %d' % len(names), file=sys.stderr)
+        sys.stdout.write(body)
+        print('total %d' % len(names), file=sys.stderr)
     return 0
 
 

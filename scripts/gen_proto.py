@@ -1,124 +1,123 @@
-#!/usr/bin/env python3
-"""
-gen_proto.py - Emit compilable .proto files from an extracted gv_pb schema.
-
-Input : schema.json produced by extract_proto.py
-Output: one .proto per logical unit inside <outdir>
-
-connect.proto and general.proto import each other in the real binary. A
-generated descriptor set cannot express an import cycle, so those two are
-merged into a single "session.proto" unit. Everything else keeps its original
-file name.
-
-Usage:
-    python3 gen_proto.py schema.json -o proto/
-"""
+import argparse
 import json
 import os
 import sys
-import argparse
 
-SCALARS = {
+SCALARS = frozenset([
     'double', 'float', 'int64', 'uint64', 'int32', 'fixed64', 'fixed32',
     'bool', 'string', 'bytes', 'uint32', 'sfixed32', 'sfixed64',
     'sint32', 'sint64',
-}
+])
 
-ORDER = [
+SOURCES = [
     'defines.proto', 'feature_flag.proto', 'connect.proto', 'general.proto',
     'input_event.proto', 'notification.proto', 'clipboard.proto', 'draw.proto',
     'port_mapping.proto', 'rpc_message.proto', 'rpc_main.proto', 'mumu.proto',
     'rpc_file_transfer.proto', 'main.proto',
 ]
 
-GROUP = {'connect.proto': 'session.proto', 'general.proto': 'session.proto'}
+MERGED = {'connect.proto': 'session.proto', 'general.proto': 'session.proto'}
 
 
-def register(msgs, fname, owner):
-    for m in msgs:
-        owner[m['name']] = fname
-        register(m.get('nested', []), fname, owner)
-        for e in m.get('enums', []):
-            owner[e['name']] = fname
+def collect_owners(messages, source, owners):
+    for item in messages:
+        owners[item['name']] = source
+        collect_owners(item.get('nested', []), source, owners)
+        for entry in item.get('enums', []):
+            owners[entry['name']] = source
 
 
-def collect_refs(msgs, acc):
-    for m in msgs:
-        for f in m['fields']:
-            if f['type'] not in SCALARS:
-                acc.add(f['type'].split('.')[-1])
-        collect_refs(m.get('nested', []), acc)
+def collect_references(messages, seen):
+    for item in messages:
+        for field in item['fields']:
+            if field['type'] not in SCALARS:
+                seen.add(field['type'].split('.')[-1])
+        collect_references(item.get('nested', []), seen)
 
 
-def render_field(f):
-    t = f['type']
-    tn = t if t in SCALARS else t.split('.')[-1]
-    prefix = 'repeated ' if f.get('repeated') else ''
-    return '  %s%s %s = %d;' % (prefix, tn, f['name'], f['num'])
+def render_field(field, indent=''):
+    kind = field['type']
+    if kind not in SCALARS:
+        kind = kind.split('.')[-1]
+    prefix = 'repeated ' if field.get('repeated') else ''
+    return '%s%s%s %s = %d;' % (indent, prefix, kind, field['name'], field['num'])
 
 
-def emit_message(m, indent=''):
-    L = [indent + 'message %s {' % m['name']]
-    for e in m.get('enums', []):
-        L.append('%s  enum %s {' % (indent, e['name']))
-        for n, v in e['values']:
-            L.append('%s    %s = %d;' % (indent, n, v))
-        L.append('%s  }' % indent)
-    for n in m.get('nested', []):
-        L += emit_message(n, indent + '  ')
-    for f in m['fields']:
-        L.append(indent + render_field(f))
-    L.append(indent + '}')
-    return L
+def render_message(item, indent=''):
+    lines = [indent + 'message %s {' % item['name']]
+    for entry in item.get('enums', []):
+        lines.append(indent + '  enum %s {' % entry['name'])
+        for label, number in entry['values']:
+            lines.append(indent + '    %s = %d;' % (label, number))
+        lines.append(indent + '  }')
+    for nested in item.get('nested', []):
+        lines.extend(render_message(nested, indent + '  '))
+    for field in item['fields']:
+        lines.append(render_field(field, indent + '  '))
+    lines.append(indent + '}')
+    return lines
+
+
+def render_enum(entry):
+    lines = ['enum %s {' % entry['name']]
+    for label, number in entry['values']:
+        lines.append('  %s = %d;' % (label, number))
+    lines.append('}')
+    return lines
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('schema')
-    ap.add_argument('-o', '--outdir', default='proto')
-    a = ap.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('schema')
+    parser.add_argument('-o', '--outdir', default='proto')
+    args = parser.parse_args()
 
-    S = json.load(open(a.schema))
-    order = [f for f in ORDER if f in S]
-    os.makedirs(a.outdir, exist_ok=True)
+    schema = json.load(open(args.schema, encoding='utf-8'))
+    sources = [name for name in SOURCES if name in schema]
+    os.makedirs(args.outdir, exist_ok=True)
 
-    owner = {}
-    for fn in order:
-        register(S[fn]['messages'], fn, owner)
-        for e in S[fn]['enums']:
-            owner[e['name']] = fn
+    owners = {}
+    for source in sources:
+        collect_owners(schema[source]['messages'], source, owners)
+        for entry in schema[source]['enums']:
+            owners[entry['name']] = source
 
     units = {}
-    for fn in order:
-        units.setdefault(GROUP.get(fn, fn), []).append(fn)
+    for source in sources:
+        units.setdefault(MERGED.get(source, source), []).append(source)
 
-    for unit, fns in units.items():
-        acc = set()
-        for fn in fns:
-            collect_refs(S[fn]['messages'], acc)
-        need = sorted({
-            GROUP.get(owner[x], owner[x])
-            for x in acc
-            if x in owner and GROUP.get(owner[x], owner[x]) != unit
-        })
-        L = ['syntax = "proto3";', '']
-        for d in need:
-            L.append('import "%s";' % d)
-        if need:
-            L.append('')
-        L += ['package gv_pb;', '']
-        for fn in fns:
-            for e in S[fn]['enums']:
-                L.append('enum %s {' % e['name'])
-                for n, v in e['values']:
-                    L.append('  %s = %d;' % (n, v))
-                L += ['}', '']
-            for m in S[fn]['messages']:
-                L += emit_message(m)
-                L.append('')
-        p = os.path.join(a.outdir, unit)
-        open(p, 'w').write('\n'.join(L))
-        print('wrote %s (%d lines)' % (p, len(L)))
+    for unit, members in units.items():
+        referenced = set()
+        for source in members:
+            collect_references(schema[source]['messages'], referenced)
+        imports = set()
+        for name in referenced:
+            origin = owners.get(name)
+            if origin is None:
+                continue
+            origin_unit = MERGED.get(origin, origin)
+            if origin_unit != unit:
+                imports.add(origin_unit)
+
+        lines = ['syntax = "proto3";', '']
+        for dep in sorted(imports):
+            lines.append('import "%s";' % dep)
+        if imports:
+            lines.append('')
+        lines.append('package gv_pb;')
+        lines.append('')
+
+        for source in members:
+            for entry in schema[source]['enums']:
+                lines.extend(render_enum(entry))
+                lines.append('')
+            for item in schema[source]['messages']:
+                lines.extend(render_message(item))
+                lines.append('')
+
+        with open(os.path.join(args.outdir, unit), 'w', encoding='utf-8') as handle:
+            handle.write('\n'.join(lines))
+        print('%s <- %s' % (unit, ', '.join(members)))
     return 0
 
 

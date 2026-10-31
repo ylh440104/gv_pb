@@ -7,40 +7,42 @@ on:
   workflow_dispatch:
 
 jobs:
-  linux:
-    name: linux / protobuf
+  rust:
+    name: rust
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install toolchain
+      - name: Toolchain
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq protobuf-compiler libprotobuf-dev cmake g++ ninja-build
+          rustup toolchain install stable --profile minimal --component clippy
+          rustup default stable
+          cargo --version
+          rustc --version
 
-      - name: Report versions
-        run: |
-          protoc --version
-          cmake --version | head -1
-          g++ --version | head -1
+      - name: Format
+        run: cargo fmt --all -- --check
 
-      - name: Configure
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Clippy
+        run: cargo clippy --all-targets -- -D warnings
 
       - name: Build
-        run: cmake --build build -j"$(nproc)"
+        run: cargo build --all-targets --release
 
-      - name: Run roundtrip test
-        run: ctest --test-dir build --output-on-failure
+      - name: Test
+        run: cargo test --all-targets -- --nocapture
 
-      - name: Show generated protobuf sources
+      - name: Signature self-check
         run: |
-          ls -l build/gen
-          echo "--- Message arms in generated code ---"
-          grep -c 'kInputEventFieldNumber\|kRpcRequestFieldNumber' build/gen/main.pb.h || true
+          cargo run --release --bin login_probe -- sign \
+            --path /api/v1/login/check_uu_token \
+            --method POST \
+            --body '{}' \
+            --ts 1700000000 \
+            --device-id dev --client-id cli --system-id sys
 
-  python:
-    name: python / schema-tools
+  proto:
+    name: proto
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -55,48 +57,46 @@ jobs:
           sudo apt-get install -y -qq protobuf-compiler
           protoc --version
 
-      - name: Regenerate proto from committed schema.json
+      - name: Rebuild proto from schema
         run: |
           mkdir -p /tmp/regen
           python3 scripts/gen_proto.py analysis/schema.json -o /tmp/regen
 
-      - name: Verify committed proto matches schema.json
+      - name: Compare with committed proto
         run: |
-          fail=0
+          status=0
           for f in /tmp/regen/*.proto; do
-            b=$(basename "$f")
-            if ! diff -q "proto/$b" "$f" > /dev/null; then
-              echo "::error file=proto/$b::regenerated schema differs from committed file"
-              diff "proto/$b" "$f" || true
-              fail=1
+            name=$(basename "$f")
+            if ! diff -q "proto/$name" "$f" > /dev/null; then
+              echo "::error file=proto/$name::does not match schema.json"
+              diff "proto/$name" "$f" || true
+              status=1
             fi
           done
-          [ "$fail" -eq 0 ] || exit 1
-          echo "committed .proto files match schema.json exactly"
+          exit $status
 
-      - name: Compile all recovered .proto
+      - name: Compile proto
         run: |
           mkdir -p /tmp/pbout
           protoc --cpp_out=/tmp/pbout -Iproto proto/*.proto
-          echo "protoc accepted all recovered schema files"
+          echo "protoc accepted every file"
 
-      - name: Emit portable FileDescriptorSet
+      - name: Descriptor set
         run: |
           mkdir -p dist
           protoc --include_imports --descriptor_set_out=dist/gv_pb.desc -Iproto proto/*.proto
-          ls -l dist/gv_pb.desc
           protoc --decode_raw < dist/gv_pb.desc > /dev/null
-          echo "descriptor set is valid wire format"
+          ls -l dist/gv_pb.desc
 
-      - name: Python roundtrip using generated modules
+      - name: Python roundtrip
         run: |
           pip install --quiet 'protobuf>=4.25'
           mkdir -p /tmp/pymods
           protoc --python_out=/tmp/pymods -Iproto proto/*.proto
-          python3 - <<'EOF'
+          python3 - <<'PY'
           import sys
           sys.path.insert(0, '/tmp/pymods')
-          import main_pb2, session_pb2, defines_pb2, input_event_pb2
+          import main_pb2, defines_pb2, input_event_pb2
 
           m = main_pb2.Message()
           m.seq = 4242
@@ -113,58 +113,43 @@ jobs:
           blob = m.SerializeToString()
           back = main_pb2.Message()
           back.ParseFromString(blob)
-
-          assert back.seq == 4242, back.seq
+          assert back.seq == 4242
           assert back.rpc_request.request_header.request_id == 9
           assert back.rpc_request.capture_setting.fps == defines_pb2.FPS_144
           assert back.rpc_request.capture_setting.resolution_width == 3840
           assert back.rpc_request.capture_setting.chorma_format == defines_pb2.ChromaFormat_444
-          print('python roundtrip OK: %d bytes' % len(blob))
-          print('hex:', blob.hex())
+          print('message roundtrip ok', len(blob), blob.hex())
 
           ie = input_event_pb2.InputEvent()
           ie.touch_event.event_type = 5
-          p = ie.touch_event.touch_points.add()
-          p.id, p.x, p.y = 1, 123.5, 456.25
-          blob2 = ie.SerializeToString()
-          back2 = input_event_pb2.InputEvent()
-          back2.ParseFromString(blob2)
-          assert back2.touch_event.touch_points[0].x == 123.5
-          print('input_event roundtrip OK:', blob2.hex())
+          pt = ie.touch_event.touch_points.add()
+          pt.id, pt.x, pt.y = 1, 123.5, 456.25
+          raw = ie.SerializeToString()
+          reread = input_event_pb2.InputEvent()
+          reread.ParseFromString(raw)
+          assert reread.touch_event.touch_points[0].x == 123.5
+          print('input roundtrip ok', raw.hex())
 
-          d = main_pb2.Message.DESCRIPTOR
-          print('Message arms present:', len(d.fields))
-          assert len(d.fields) == 28, len(d.fields)
-          EOF
+          assert len(main_pb2.Message.DESCRIPTOR.fields) == 28
+          print('envelope arms ok')
+          PY
 
-      # Artifact upload is best-effort: GitHub artifact storage quota is
-      # account-wide and unrelated to whether the schema is valid.
-      - uses: actions/upload-artifact@v4
-        continue-on-error: true
-        with:
-          name: gvpb-proto-and-descriptor
-          path: |
-            dist/gv_pb.desc
-            proto/*.proto
-            analysis/schema.json
-            analysis/rtti_symbols.txt
-
-  windows:
-    name: windows / msvc
-    runs-on: windows-2022
+  cpp:
+    name: cpp
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install protobuf
-        run: vcpkg install protobuf:x64-windows
+      - name: Install
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq protobuf-compiler libprotobuf-dev cmake g++ ninja-build
 
       - name: Configure
-        run: >
-          cmake -S . -B build -A x64
-          -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake"
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build build --config Release -j
+        run: cmake --build build -j"$(nproc)"
 
-      - name: Run roundtrip test
-        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Test
+        run: ctest --test-dir build --output-on-failure

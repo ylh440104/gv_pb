@@ -219,6 +219,44 @@ scripts/
   extract_rtti.py    PE → C++ 符号
 ```
 
+## 官方传输路径就是标准 WebRTC
+
+这一点是决定性的：`streamer.dll`（18.6 MB）里保留了完整的 Google libwebrtc
+编译单元路径。
+
+```
+..\..\pc\peer_connection.cc
+..\..\pc\sdp_offer_answer.cc
+..\..\pc\dtls_srtp_transport.cc
+..\..\pc\sctp_data_channel.cc
+..\..\pc\ice_server_parsing.cc
+..\..\call\bitrate_allocator.cc
+..\..\rtc_base\openssl_stream_adapter.cc
+..\..\p2p\base\turn_port.cc
+```
+
+编解码：H.264（`h264_encoder_impl.cc` / OpenH264）、H.265（
+`video_rtp_depacketizer_h265.cc`，网易自己补的打包器）、Opus、UDP FEC。
+
+也就是说，**媒体层不用逆向，它就是 RFC 3550 / 8831 那一套**，用任何成熟的
+WebRTC 库都能对接。信令里的 `soac` 消息携带 `sdp` / `gzip_sdp` / `candidate` /
+`ice_id` / `sdp_mid` / `sdp_mline_index`，全是标准字段。
+
+一个 Linux 被控端的正确做法：
+
+| 层 | 做什么 | 用什么 |
+|---|---|---|
+| 信令 | Socket.IO v4，收 `be-controlled` / `soac` | 任意 Socket.IO 客户端 |
+| 媒体 | 标准 WebRTC P2P（+ TURN 兜底） | webrtc-rs / libdatachannel / pion |
+| 控制面 | protobuf over DataChannel | **本仓库 schema** |
+| 采集 | X11 / Wayland / KMS | x11rb / portal / DRM |
+| 编码 | H.264 / Opus | VAAPI / NVENC / OpenH264 / libopus |
+| 注入 | uinput / Portal RemoteDesktop | — |
+
+细节与证据见 [`docs/OFFICIAL-TRANSPORT.md`](docs/OFFICIAL-TRANSPORT.md)。
+
+---
+
 ## 交叉验证：与 VallierDev/uu-remote-linux 对照
 
 社区已有一个可用的 Linux 被控端实现

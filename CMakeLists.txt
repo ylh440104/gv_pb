@@ -23,9 +23,9 @@ foreach(p ${PROTO_FILES})
   add_custom_command(
     OUTPUT "${GEN_DIR}/${n}.pb.cc" "${GEN_DIR}/${n}.pb.h"
     COMMAND "${Protobuf_PROTOC_EXECUTABLE}"
-            --cpp_out="${GEN_DIR}"
-            -I "${CMAKE_CURRENT_SOURCE_DIR}/proto"
-            "${p}"
+            --cpp_out=${GEN_DIR}
+            -I${CMAKE_CURRENT_SOURCE_DIR}/proto
+            ${p}
     DEPENDS "${p}"
     COMMENT "protoc ${n}.proto"
     VERBATIM)

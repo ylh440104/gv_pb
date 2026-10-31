@@ -90,25 +90,25 @@ jobs:
 
       - name: Python roundtrip using generated modules
         run: |
-          pip install --quiet protobuf
+          pip install --quiet 'protobuf>=4.25'
           mkdir -p /tmp/pymods
           protoc --python_out=/tmp/pymods -Iproto proto/*.proto
           python3 - <<'EOF'
           import sys
           sys.path.insert(0, '/tmp/pymods')
-          import main_pb2, session_pb2, input_event_pb2
+          import main_pb2, session_pb2, defines_pb2, input_event_pb2
 
           m = main_pb2.Message()
           m.seq = 4242
           m.timestamp = 1700000000
           m.rpc_request.request_header.request_id = 9
           cs = m.rpc_request.capture_setting
-          cs.fps = session_pb2.FPS_144
-          cs.frame_quality = session_pb2.VideoQuality_Bluray
-          cs.codec_type = session_pb2.CodecType_H265
+          cs.fps = defines_pb2.FPS_144
+          cs.frame_quality = defines_pb2.VideoQuality_Bluray
+          cs.codec_type = defines_pb2.CodecType_H265
           cs.resolution_width = 3840
           cs.resolution_height = 2160
-          cs.chorma_format = session_pb2.ChromaFormat_444
+          cs.chorma_format = defines_pb2.ChromaFormat_444
 
           blob = m.SerializeToString()
           back = main_pb2.Message()
@@ -116,9 +116,9 @@ jobs:
 
           assert back.seq == 4242, back.seq
           assert back.rpc_request.request_header.request_id == 9
-          assert back.rpc_request.capture_setting.fps == session_pb2.FPS_144
+          assert back.rpc_request.capture_setting.fps == defines_pb2.FPS_144
           assert back.rpc_request.capture_setting.resolution_width == 3840
-          assert back.rpc_request.capture_setting.chorma_format == session_pb2.ChromaFormat_444
+          assert back.rpc_request.capture_setting.chorma_format == defines_pb2.ChromaFormat_444
           print('python roundtrip OK: %d bytes' % len(blob))
           print('hex:', blob.hex())
 

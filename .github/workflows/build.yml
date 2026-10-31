@@ -24,6 +24,11 @@ jobs:
           rustc -O -o sign_check scripts/sign_check.rs
           ./sign_check
 
+      - name: Verify wire and frame contract
+        run: |
+          rustc -O -o wire_check scripts/wire_check.rs
+          ./wire_check
+
       - name: Cross check with python hmac
         run: |
           python3 - <<'PY'

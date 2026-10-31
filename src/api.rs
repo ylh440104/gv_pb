@@ -7,6 +7,17 @@ use crate::signer::AccessToken;
 use crate::signer::DeviceIdentity;
 use crate::signer::RequestSigner;
 use crate::signer::BASE_URL;
+use crate::signaling::RoomData;
+
+#[derive(Debug, Clone, Default, Deserialize)]
+pub struct ApiEnvelope {
+    #[serde(default)]
+    pub code: i64,
+    #[serde(default)]
+    pub msg: String,
+    #[serde(default)]
+    pub data: Option<serde_json::Value>,
+}
 
 #[derive(Debug)]
 pub enum Failure {
@@ -227,8 +238,17 @@ impl Api {
         self.send("POST", "/api/v1/device", "", payload).await
     }
 
-    pub async fn room_create(&self) -> Result<String, Failure> {
-        self.send("POST", "/api/v1/room/create", "", "{}").await
+    pub async fn room_create(&self) -> Result<RoomData, Failure> {
+        let text = self.send("POST", "/api/v1/room/create", "", "{}").await?;
+        let envelope: ApiEnvelope =
+            serde_json::from_str(&text).map_err(|e| Failure::Decode(e.to_string()))?;
+        if envelope.code != 0 {
+            return Err(Failure::Status(200, envelope.msg));
+        }
+        let data = envelope.data.ok_or_else(|| {
+            Failure::Decode(String::from("room/create returned no data"))
+        })?;
+        serde_json::from_value(data).map_err(|e| Failure::Decode(e.to_string()))
     }
 }
 

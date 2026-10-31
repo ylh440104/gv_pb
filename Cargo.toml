@@ -1,8 +1,8 @@
 [package]
 name = "gvpb-login"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
-description = "NRD signing and login probe derived from GameViewerServer static analysis"
+description = "NRD signing, login, signalling and control-plane framing for a UU Remote host"
 license = "MIT OR Apache-2.0"
 
 [lib]
@@ -12,6 +12,10 @@ path = "src/lib.rs"
 [[bin]]
 name = "login_probe"
 path = "src/bin/login_probe.rs"
+
+[[bin]]
+name = "host"
+path = "src/bin/host.rs"
 
 [dependencies]
 hmac = "0.12"

@@ -158,14 +158,24 @@ POST /api/v1/room/clear/by_device/<id>
 |---|---|
 | `src/signer.rs` | 签名与请求头 |
 | `src/api.rs` | 登录、设备、房间请求 |
-| `src/bin/login_probe.rs` | 命令行验证工具 |
-| `src/roundtrip_test.cc` | wire format 往返验证 |
+| `src/signaling.rs` | Engine.IO 帧解析、事件解码 |
+| `src/signal_session.rs` | 心跳状态机、SDP offer 应答 |
+| `src/ws_frame.rs` | WebSocket 帧编解码 |
+| `src/ws_client.rs` | WS 握手与收发 |
+| `src/wire.rs` | protobuf wire、信封、RpcReply |
+| `src/control.rs` | 控制面请求分派与回包 |
+| `src/bin/login_probe.rs` | 登录命令行 |
+| `src/bin/host.rs` | 被控端命令行 |
+| `src/roundtrip_test.cc` | C++ wire 往返验证 |
 | `scripts/extract_proto.py` | PE 提取 schema |
 | `scripts/gen_proto.py` | schema 生成 proto |
 | `scripts/extract_rtti.py` | PE 提取 C++ 符号 |
+| `scripts/sign_check.rs` | 签名自检，零依赖 |
+| `scripts/wire_check.rs` | wire 与帧自检，零依赖 |
 
 ```
 rustc -O -o sign_check scripts/sign_check.rs && ./sign_check
+rustc -O -o wire_check scripts/wire_check.rs && ./wire_check
 
 cargo test
 cargo run --bin login_probe -- sign --path /api/v1/login/check_uu_token --ts 1700000000

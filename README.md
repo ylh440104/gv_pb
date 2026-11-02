@@ -4,6 +4,51 @@
 
 目标版本 `4.45.0.4318`，`GameViewerServer.exe` 33,736,696 字节。
 
+## Login
+
+`docs/LOGIN.md` records a verified end to end login flow against the live
+service. Every step below was executed and observed, not inferred.
+
+```
+POST /api/v1/device/windows/init   register a fresh device, no token needed
+POST /api/v1/qrcode/gen/login      obtain a scannable qr, requires real device pair
+POST /api/v1/qrcode/login/status   poll, login_status is enum 1..4
+POST /api/v1/login/by_qrcode       exchange for jwt
+```
+
+The signature layer and the token layer are independent:
+
+```
+1003  bad signature
+1001  signature accepted, headers or body incomplete
+1120  signature and headers fine, token invalid or expired
+```
+
+Seeing `1001` means the hmac construction is correct and only field completion
+remains. The full header set, both plat profiles, the video-is-a-list detail and
+the origin header bug on the signaling socket are all written up in
+`docs/LOGIN.md`.
+
+`scripts/nrd_login.py` runs the whole sequence with the standard library only:
+
+```
+python3 scripts/nrd_login.py register --name my-host
+python3 scripts/nrd_login.py qr --image qr.png
+python3 scripts/nrd_login.py verify
+python3 scripts/nrd_login.py whoami
+python3 scripts/nrd_login.py devices
+python3 scripts/nrd_login.py room
+python3 scripts/nrd_login.py sign --path /api/v1/user/info
+```
+
+No credential is baked into the repository. The script generates its own device
+identity, writes state to `~/.nrd/` with mode 600 and reads it back on the next
+run.
+
+`scripts/nrd_signal.py` covers the signaling side: websocket handshake, engine.io
+v4 namespace, room_info, event dispatch and ping reply.
+
+
 ## 还原结果
 
 | 项目 | 数量 |
